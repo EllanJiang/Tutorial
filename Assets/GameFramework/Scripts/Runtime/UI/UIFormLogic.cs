@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------
 // Game Framework
-// Copyright © 2013-2019 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using UnityEngine;
@@ -103,6 +103,13 @@ namespace UnityGameFramework.Runtime
             }
 
             m_OriginalLayer = gameObject.layer;
+        }
+
+        /// <summary>
+        /// 界面回收。
+        /// </summary>
+        protected internal virtual void OnRecycle()
+        {
         }
 
         /// <summary>

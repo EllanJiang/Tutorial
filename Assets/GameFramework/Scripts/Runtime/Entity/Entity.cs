@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------
 // Game Framework
-// Copyright © 2013-2019 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using GameFramework;
@@ -141,8 +141,17 @@ namespace UnityGameFramework.Runtime
         /// </summary>
         public void OnRecycle()
         {
+            try
+            {
+                m_EntityLogic.OnRecycle();
+                m_EntityLogic.enabled = false;
+            }
+            catch (Exception exception)
+            {
+                Log.Error("Entity '[{0}]{1}' OnRecycle with exception '{2}'.", m_Id.ToString(), m_EntityAssetName, exception.ToString());
+            }
+
             m_Id = 0;
-            m_EntityLogic.enabled = false;
         }
 
         /// <summary>

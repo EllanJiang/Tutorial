@@ -1,12 +1,12 @@
 ﻿## HOMEPAGE
 
 - **English** - Coming soon.
-- **简体中文** - [http://gameframework.cn/](http://gameframework.cn/)
+- **简体中文** - [https://gameframework.cn/](https://gameframework.cn/)
   - **QQ 讨论群** 216332935
 
 ---
 
-![Game Framework](http://gameframework.cn/wp-content/uploads/2016/04/Game-Framework.png)
+![Game Framework](https://gameframework.cn/image/gameframework.png)
 
 ---
 

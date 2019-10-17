@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------
 // Game Framework
-// Copyright © 2013-2019 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using GameFramework.UI;
@@ -153,6 +153,15 @@ namespace UnityGameFramework.Runtime
         /// </summary>
         public void OnRecycle()
         {
+            try
+            {
+                m_UIFormLogic.OnRecycle();
+            }
+            catch (Exception exception)
+            {
+                Log.Error("UI form '[{0}]{1}' OnRecycle with exception '{2}'.", m_SerialId.ToString(), m_UIFormAssetName, exception.ToString());
+            }
+
             m_SerialId = 0;
             m_DepthInUIGroup = 0;
             m_PauseCoveredUIForm = true;
