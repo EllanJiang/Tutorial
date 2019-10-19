@@ -1,6 +1,4 @@
-﻿using System;
-using GameFramework;
-using GameFramework.Event;
+﻿using GameFramework;
 using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
@@ -24,21 +22,6 @@ namespace Tutorial
             Log.Info(welcomeMessage);
             Log.Warning(welcomeMessage);
             Log.Error(welcomeMessage);
-
-            EventComponent eventComponent = GameEntry.GetComponent<EventComponent>();
-            EventHandler<GameEventArgs> loadDataTableSuccess = OnLoadDataTableSuccess;
-            eventComponent.Subscribe(LoadDataTableSuccessEventArgs.EventId, loadDataTableSuccess);
-            eventComponent.Unsubscribe(LoadDataTableSuccessEventArgs.EventId, loadDataTableSuccess);
-        }
-
-        /// <summary>
-        /// 加载数据表成功事件响应函数。
-        /// </summary>
-        /// <param name="sender">事件发送者。</param>
-        /// <param name="e">事件。</param>
-        private void OnLoadDataTableSuccess(object sender, GameEventArgs e)
-        {
-            LoadDataTableSuccessEventArgs ne = (LoadDataTableSuccessEventArgs)e;
         }
 
         // 每次轮询执行。
