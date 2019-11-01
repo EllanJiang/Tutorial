@@ -8,9 +8,9 @@
 namespace UnityGameFramework.Runtime
 {
     /// <summary>
-    /// 调试器激活窗口类型。
+    /// 引用强制检查类型。
     /// </summary>
-    public enum DebuggerActiveWindowType
+    public enum ReferenceStrictCheckType
     {
         /// <summary>
         /// 总是关闭。

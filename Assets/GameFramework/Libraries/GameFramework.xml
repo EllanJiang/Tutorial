@@ -1582,6 +1582,11 @@
             引用池。
             </summary>
         </member>
+        <member name="P:GameFramework.ReferencePool.EnableStrictCheck">
+            <summary>
+            获取或设置是否开启强制检查。
+            </summary>
+        </member>
         <member name="P:GameFramework.ReferencePool.Count">
             <summary>
             获取引用池的数量。
