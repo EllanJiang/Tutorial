@@ -7,17 +7,19 @@
 
 using UnityEngine;
 
-namespace StarForce
+namespace Tutorial
 {
     /// <summary>
     /// 游戏入口。
     /// </summary>
     public partial class GameEntry : MonoBehaviour
     {
-        private void Start()
+        private static void InitCustomComponents()
         {
-            InitBuiltinComponents();
-            InitCustomComponents();
+        }
+
+        private static void InitCustomDebuggers()
+        {
         }
     }
 }

@@ -8,7 +8,7 @@
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace StarForce
+namespace Tutorial
 {
     /// <summary>
     /// 游戏入口。
