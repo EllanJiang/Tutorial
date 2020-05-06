@@ -28,6 +28,19 @@ namespace UnityGameFramework.Editor
             }
             EditorGUI.EndDisabledGroup();
 
+            if (EditorApplication.isPlaying && IsPrefabInHierarchy(t.gameObject))
+            {
+                EditorGUILayout.LabelField("Setting Count", t.Count >= 0 ? t.Count.ToString() : "<Unknown>");
+                if (t.Count > 0)
+                {
+                    string[] settingNames = t.GetAllSettingNames();
+                    foreach (string settingName in settingNames)
+                    {
+                        EditorGUILayout.LabelField(settingName, t.GetString(settingName));
+                    }
+                }
+            }
+
             if (EditorApplication.isPlaying)
             {
                 if (GUILayout.Button("Save Settings"))

@@ -71,7 +71,7 @@ namespace UnityGameFramework.Runtime
         private string m_UpdatePrefixUri = null;
 
         [SerializeField]
-        private int m_GenerateReadWriteListLength = OneMegaBytes;
+        private int m_GenerateReadWriteVersionListLength = OneMegaBytes;
 
         [SerializeField]
         private int m_UpdateRetryCount = 3;
@@ -146,6 +146,50 @@ namespace UnityGameFramework.Runtime
             get
             {
                 return m_ResourceManager.CurrentVariant;
+            }
+        }
+
+        /// <summary>
+        /// 获取单机模式版本资源列表序列化器。
+        /// </summary>
+        public PackageVersionListSerializer PackageVersionListSerializer
+        {
+            get
+            {
+                return m_ResourceManager.PackageVersionListSerializer;
+            }
+        }
+
+        /// <summary>
+        /// 获取可更新模式版本资源列表序列化器。
+        /// </summary>
+        public UpdatableVersionListSerializer UpdatableVersionListSerializer
+        {
+            get
+            {
+                return m_ResourceManager.UpdatableVersionListSerializer;
+            }
+        }
+
+        /// <summary>
+        /// 获取本地只读区版本资源列表序列化器。
+        /// </summary>
+        public ReadOnlyVersionListSerializer ReadOnlyVersionListSerializer
+        {
+            get
+            {
+                return m_ResourceManager.ReadOnlyVersionListSerializer;
+            }
+        }
+
+        /// <summary>
+        /// 获取本地读写区版本资源列表序列化器。
+        /// </summary>
+        public ReadWriteVersionListSerializer ReadWriteVersionListSerializer
+        {
+            get
+            {
+                return m_ResourceManager.ReadWriteVersionListSerializer;
             }
         }
 
@@ -235,17 +279,17 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
-        /// 获取或设置每下载多少字节的资源，刷新一次资源列表。
+        /// 获取或设置每下载多少字节的资源，重新生成一次版本资源列表。
         /// </summary>
-        public int GenerateReadWriteListLength
+        public int GenerateReadWriteVersionListLength
         {
             get
             {
-                return m_ResourceManager.GenerateReadWriteListLength;
+                return m_ResourceManager.GenerateReadWriteVersionListLength;
             }
             set
             {
-                m_ResourceManager.GenerateReadWriteListLength = m_GenerateReadWriteListLength = value;
+                m_ResourceManager.GenerateReadWriteVersionListLength = m_GenerateReadWriteVersionListLength = value;
             }
         }
 
@@ -543,7 +587,7 @@ namespace UnityGameFramework.Runtime
             if (m_ResourceMode == ResourceMode.Updatable)
             {
                 m_ResourceManager.UpdatePrefixUri = m_UpdatePrefixUri;
-                m_ResourceManager.GenerateReadWriteListLength = m_GenerateReadWriteListLength;
+                m_ResourceManager.GenerateReadWriteVersionListLength = m_GenerateReadWriteVersionListLength;
                 m_ResourceManager.UpdateRetryCount = m_UpdateRetryCount;
             }
 
@@ -563,7 +607,7 @@ namespace UnityGameFramework.Runtime
 
             if (m_InstanceRoot == null)
             {
-                m_InstanceRoot = (new GameObject("Load Resource Agent Instances")).transform;
+                m_InstanceRoot = new GameObject("Load Resource Agent Instances").transform;
                 m_InstanceRoot.SetParent(gameObject.transform);
                 m_InstanceRoot.localScale = Vector3.one;
             }
@@ -605,6 +649,26 @@ namespace UnityGameFramework.Runtime
         public void SetResourceMode(ResourceMode resourceMode)
         {
             m_ResourceManager.SetResourceMode(resourceMode);
+            switch (resourceMode)
+            {
+                case ResourceMode.Package:
+                    m_ResourceManager.PackageVersionListSerializer.RegisterDeserializeCallback(0, BuiltinVersionListSerializer.DeserializePackageVersionListCallback_V0);
+                    m_ResourceManager.PackageVersionListSerializer.RegisterDeserializeCallback(1, BuiltinVersionListSerializer.DeserializePackageVersionListCallback_V1);
+                    break;
+
+                case ResourceMode.Updatable:
+                    m_ResourceManager.UpdatableVersionListSerializer.RegisterDeserializeCallback(0, BuiltinVersionListSerializer.DeserializeUpdatableVersionListCallback_V0);
+                    m_ResourceManager.UpdatableVersionListSerializer.RegisterDeserializeCallback(1, BuiltinVersionListSerializer.DeserializeUpdatableVersionListCallback_V1);
+                    m_ResourceManager.UpdatableVersionListSerializer.RegisterTryGetValueCallback(0, BuiltinVersionListSerializer.TryGetValueUpdatableVersionListCallback_V0);
+                    m_ResourceManager.UpdatableVersionListSerializer.RegisterTryGetValueCallback(1, BuiltinVersionListSerializer.TryGetValueUpdatableVersionListCallback_V1);
+                    m_ResourceManager.ReadOnlyVersionListSerializer.RegisterDeserializeCallback(0, BuiltinVersionListSerializer.DeserializeLocalVersionListCallback_V0);
+                    m_ResourceManager.ReadOnlyVersionListSerializer.RegisterDeserializeCallback(1, BuiltinVersionListSerializer.DeserializeLocalVersionListCallback_V1);
+                    m_ResourceManager.ReadWriteVersionListSerializer.RegisterSerializeCallback(0, BuiltinVersionListSerializer.SerializeLocalVersionListCallback_V0);
+                    m_ResourceManager.ReadWriteVersionListSerializer.RegisterSerializeCallback(1, BuiltinVersionListSerializer.SerializeLocalVersionListCallback_V1);
+                    m_ResourceManager.ReadWriteVersionListSerializer.RegisterDeserializeCallback(0, BuiltinVersionListSerializer.DeserializeLocalVersionListCallback_V0);
+                    m_ResourceManager.ReadWriteVersionListSerializer.RegisterDeserializeCallback(1, BuiltinVersionListSerializer.DeserializeLocalVersionListCallback_V1);
+                    break;
+            }
         }
 
         /// <summary>
@@ -716,8 +780,8 @@ namespace UnityGameFramework.Runtime
         /// 检查资源是否存在。
         /// </summary>
         /// <param name="assetName">要检查资源的名称。</param>
-        /// <returns>资源是否存在。</returns>
-        public bool HasAsset(string assetName)
+        /// <returns>检查资源是否存在的结果。</returns>
+        public HasAssetResult HasAsset(string assetName)
         {
             return m_ResourceManager.HasAsset(assetName);
         }
@@ -833,6 +897,61 @@ namespace UnityGameFramework.Runtime
         public void UnloadAsset(object asset)
         {
             m_ResourceManager.UnloadAsset(asset);
+        }
+
+        /// <summary>
+        /// 获取二进制资源的实际路径。
+        /// </summary>
+        /// <param name="binaryAssetName">要获取实际路径的二进制资源的名称。</param>
+        /// <returns>二进制资源的实际路径。</returns>
+        public string GetBinaryPath(string binaryAssetName)
+        {
+            return m_ResourceManager.GetBinaryPath(binaryAssetName);
+        }
+
+        /// <summary>
+        /// 获取二进制资源的实际路径。
+        /// </summary>
+        /// <param name="binaryAssetName">要获取实际路径的二进制资源的名称。</param>
+        /// <param name="storageInReadOnly">资源是否在只读区。</param>
+        /// <param name="relativePath">二进制资源相对于只读区或者读写区的相对路径。</param>
+        /// <returns>获取二进制资源的实际路径是否成功。</returns>
+        public bool GetBinaryPath(string binaryAssetName, out bool storageInReadOnly, out string relativePath)
+        {
+            return m_ResourceManager.GetBinaryPath(binaryAssetName, out storageInReadOnly, out relativePath);
+        }
+
+        /// <summary>
+        /// 异步加载二进制资源。
+        /// </summary>
+        /// <param name="binaryAssetName">要加载二进制资源的名称。</param>
+        /// <param name="loadBinaryCallbacks">加载二进制资源回调函数集。</param>
+        public void LoadBinary(string binaryAssetName, LoadBinaryCallbacks loadBinaryCallbacks)
+        {
+            LoadBinary(binaryAssetName, loadBinaryCallbacks, null);
+        }
+
+        /// <summary>
+        /// 异步加载二进制资源。
+        /// </summary>
+        /// <param name="binaryAssetName">要加载二进制资源的名称。</param>
+        /// <param name="loadBinaryCallbacks">加载二进制资源回调函数集。</param>
+        /// <param name="userData">用户自定义数据。</param>
+        public void LoadBinary(string binaryAssetName, LoadBinaryCallbacks loadBinaryCallbacks, object userData)
+        {
+            if (string.IsNullOrEmpty(binaryAssetName))
+            {
+                Log.Error("Binary asset name is invalid.");
+                return;
+            }
+
+            if (!binaryAssetName.StartsWith("Assets/"))
+            {
+                Log.Error("Binary asset name '{0}' is invalid.", binaryAssetName);
+                return;
+            }
+
+            m_ResourceManager.LoadBinary(binaryAssetName, loadBinaryCallbacks, userData);
         }
 
         /// <summary>

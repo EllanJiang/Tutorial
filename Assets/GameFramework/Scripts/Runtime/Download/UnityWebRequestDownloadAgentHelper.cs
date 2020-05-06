@@ -192,7 +192,7 @@ namespace UnityGameFramework.Runtime
         /// 释放资源。
         /// </summary>
         /// <param name="disposing">释放资源标记。</param>
-        private void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
             if (m_Disposed)
             {
@@ -231,7 +231,7 @@ namespace UnityGameFramework.Runtime
 #endif
             if (isError)
             {
-                DownloadAgentHelperErrorEventArgs downloadAgentHelperErrorEventArgs = DownloadAgentHelperErrorEventArgs.Create(m_UnityWebRequest.error);
+                DownloadAgentHelperErrorEventArgs downloadAgentHelperErrorEventArgs = DownloadAgentHelperErrorEventArgs.Create(m_UnityWebRequest.responseCode == RangeNotSatisfiableErrorCode, m_UnityWebRequest.error);
                 m_DownloadAgentHelperErrorEventHandler(this, downloadAgentHelperErrorEventArgs);
                 ReferencePool.Release(downloadAgentHelperErrorEventArgs);
             }

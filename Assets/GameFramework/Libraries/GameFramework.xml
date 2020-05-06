@@ -4,26 +4,6 @@
         <name>GameFramework</name>
     </assembly>
     <members>
-        <member name="T:GameFramework.LoadType">
-            <summary>
-            加载方式。
-            </summary>
-        </member>
-        <member name="F:GameFramework.LoadType.Text">
-            <summary>
-            按文本加载。
-            </summary>
-        </member>
-        <member name="F:GameFramework.LoadType.Bytes">
-            <summary>
-            按二进制流加载。
-            </summary>
-        </member>
-        <member name="F:GameFramework.LoadType.Stream">
-            <summary>
-            按二进制流加载。
-            </summary>
-        </member>
         <member name="T:GameFramework.TypeNamePair">
             <summary>
             类型和名称的组合值。
@@ -585,6 +565,75 @@
             <param name="arg14">此委托封装的方法的第十四个参数。</param>
             <param name="arg15">此委托封装的方法的第十五个参数。</param>
             <param name="arg16">此委托封装的方法的第十六个参数。</param>
+        </member>
+        <member name="T:GameFramework.GameFrameworkDataSegment">
+            <summary>
+            数据片段。
+            </summary>
+        </member>
+        <member name="M:GameFramework.GameFrameworkDataSegment.#ctor(System.Object,System.Int32,System.Int32)">
+            <summary>
+            初始化数据片段的新实例。
+            </summary>
+            <param name="data">完整数据。</param>
+            <param name="offset">偏移。</param>
+            <param name="length">长度。</param>
+        </member>
+        <member name="P:GameFramework.GameFrameworkDataSegment.Data">
+            <summary>
+            获取完整数据。
+            </summary>
+        </member>
+        <member name="P:GameFramework.GameFrameworkDataSegment.DataType">
+            <summary>
+            获取数据类型。
+            </summary>
+        </member>
+        <member name="P:GameFramework.GameFrameworkDataSegment.Offset">
+            <summary>
+            获取偏移。
+            </summary>
+        </member>
+        <member name="P:GameFramework.GameFrameworkDataSegment.Length">
+            <summary>
+            获取长度。
+            </summary>
+        </member>
+        <member name="M:GameFramework.GameFrameworkDataSegment.GetHashCode">
+            <summary>
+            获取对象的哈希值。
+            </summary>
+            <returns>对象的哈希值。</returns>
+        </member>
+        <member name="M:GameFramework.GameFrameworkDataSegment.Equals(System.Object)">
+            <summary>
+            比较对象是否与自身相等。
+            </summary>
+            <param name="obj">要比较的对象。</param>
+            <returns>被比较的对象是否与自身相等。</returns>
+        </member>
+        <member name="M:GameFramework.GameFrameworkDataSegment.Equals(GameFramework.GameFrameworkDataSegment)">
+            <summary>
+            比较对象是否与自身相等。
+            </summary>
+            <param name="value">要比较的对象。</param>
+            <returns>被比较的对象是否与自身相等。</returns>
+        </member>
+        <member name="M:GameFramework.GameFrameworkDataSegment.op_Equality(GameFramework.GameFrameworkDataSegment,GameFramework.GameFrameworkDataSegment)">
+            <summary>
+            判断两个对象是否相等。
+            </summary>
+            <param name="a">值 a。</param>
+            <param name="b">值 b。</param>
+            <returns>两个对象是否相等。</returns>
+        </member>
+        <member name="M:GameFramework.GameFrameworkDataSegment.op_Inequality(GameFramework.GameFrameworkDataSegment,GameFramework.GameFrameworkDataSegment)">
+            <summary>
+            判断两个对象是否不相等。
+            </summary>
+            <param name="a">值 a。</param>
+            <param name="b">值 b。</param>
+            <returns>两个对象是否不相等。</returns>
         </member>
         <member name="T:GameFramework.GameFrameworkEntry">
             <summary>
@@ -1275,6 +1324,83 @@
             重置枚举数。
             </summary>
         </member>
+        <member name="T:GameFramework.GameFrameworkLinkedListRange`1">
+            <summary>
+            游戏框架链表范围。
+            </summary>
+            <typeparam name="T">指定链表范围的元素类型。</typeparam>
+        </member>
+        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.#ctor(System.Collections.Generic.LinkedListNode{`0},System.Collections.Generic.LinkedListNode{`0})">
+            <summary>
+            初始化游戏框架链表范围的新实例。
+            </summary>
+            <param name="first">链表范围的开始结点。</param>
+            <param name="terminal">链表范围的终结标记结点。</param>
+        </member>
+        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.IsValid">
+            <summary>
+            获取链表范围是否有效。
+            </summary>
+        </member>
+        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.First">
+            <summary>
+            获取链表范围的开始结点。
+            </summary>
+        </member>
+        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.Terminal">
+            <summary>
+            获取链表范围的终结标记结点。
+            </summary>
+        </member>
+        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.Count">
+            <summary>
+            获取链表范围的结点数量。
+            </summary>
+        </member>
+        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.Contains(`0)">
+            <summary>
+            检查是否包含指定值。
+            </summary>
+            <param name="value">要检查的值。</param>
+            <returns>是否包含指定值。</returns>
+        </member>
+        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.GetEnumerator">
+            <summary>
+            返回循环访问集合的枚举数。
+            </summary>
+            <returns>循环访问集合的枚举数。</returns>
+        </member>
+        <member name="T:GameFramework.GameFrameworkLinkedListRange`1.Enumerator">
+            <summary>
+            循环访问集合的枚举数。
+            </summary>
+        </member>
+        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.Current">
+            <summary>
+            获取当前结点。
+            </summary>
+        </member>
+        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.System#Collections#IEnumerator#Current">
+            <summary>
+            获取当前的枚举数。
+            </summary>
+        </member>
+        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.Dispose">
+            <summary>
+            清理枚举数。
+            </summary>
+        </member>
+        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.MoveNext">
+            <summary>
+            获取下一个结点。
+            </summary>
+            <returns>返回下一个结点。</returns>
+        </member>
+        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.System#Collections#IEnumerator#Reset">
+            <summary>
+            重置枚举数。
+            </summary>
+        </member>
         <member name="T:GameFramework.GameFrameworkModule">
             <summary>
             游戏框架模块抽象类。
@@ -1409,147 +1535,100 @@
             重置枚举数。
             </summary>
         </member>
-        <member name="T:GameFramework.GameFrameworkLinkedListRange`1">
+        <member name="T:GameFramework.GameFrameworkSerializer`1">
             <summary>
-            游戏框架链表范围。
+            游戏框架序列化器基类。
             </summary>
-            <typeparam name="T">指定链表范围的元素类型。</typeparam>
+            <typeparam name="T">要序列化的数据类型。</typeparam>
         </member>
-        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.#ctor(System.Collections.Generic.LinkedListNode{`0},System.Collections.Generic.LinkedListNode{`0})">
+        <member name="M:GameFramework.GameFrameworkSerializer`1.#ctor">
             <summary>
-            初始化游戏框架链表范围的新实例。
-            </summary>
-            <param name="first">链表范围的开始结点。</param>
-            <param name="terminal">链表范围的终结标记结点。</param>
-        </member>
-        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.IsValid">
-            <summary>
-            获取链表范围是否有效。
+            初始化游戏框架序列化器基类的新实例。
             </summary>
         </member>
-        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.First">
+        <member name="T:GameFramework.GameFrameworkSerializer`1.SerializeCallback">
             <summary>
-            获取链表范围的开始结点。
+            序列化回调函数。
             </summary>
+            <param name="binaryWriter">目标流。</param>
+            <param name="data">要序列化的数据。</param>
+            <returns>序列化数据是否成功。</returns>
         </member>
-        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.Terminal">
+        <member name="T:GameFramework.GameFrameworkSerializer`1.DeserializeCallback">
             <summary>
-            获取链表范围的终结标记结点。
+            反序列化回调函数。
             </summary>
+            <param name="binaryReader">指定流。</param>
+            <returns>反序列化的数据。</returns>
         </member>
-        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.Count">
+        <member name="T:GameFramework.GameFrameworkSerializer`1.TryGetValueCallback">
             <summary>
-            获取链表范围的结点数量。
+            尝试从指定流获取指定键的值回调函数。
             </summary>
+            <param name="binaryReader">指定流。</param>
+            <param name="key">指定键。</param>
+            <param name="value">指定键的值。</param>
+            <returns>从指定流获取指定键的值是否成功。</returns>
         </member>
-        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.Contains(`0)">
+        <member name="M:GameFramework.GameFrameworkSerializer`1.RegisterSerializeCallback(System.Byte,GameFramework.GameFrameworkSerializer{`0}.SerializeCallback)">
             <summary>
-            检查是否包含指定值。
+            注册序列化回调函数。
             </summary>
-            <param name="value">要检查的值。</param>
-            <returns>是否包含指定值。</returns>
+            <param name="version">序列化回调函数的版本。</param>
+            <param name="callback">序列化回调函数。</param>
         </member>
-        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.GetEnumerator">
+        <member name="M:GameFramework.GameFrameworkSerializer`1.RegisterDeserializeCallback(System.Byte,GameFramework.GameFrameworkSerializer{`0}.DeserializeCallback)">
             <summary>
-            返回循环访问集合的枚举数。
+            注册反序列化回调函数。
             </summary>
-            <returns>循环访问集合的枚举数。</returns>
+            <param name="version">反序列化回调函数的版本。</param>
+            <param name="callback">反序列化回调函数。</param>
         </member>
-        <member name="T:GameFramework.GameFrameworkLinkedListRange`1.Enumerator">
+        <member name="M:GameFramework.GameFrameworkSerializer`1.RegisterTryGetValueCallback(System.Byte,GameFramework.GameFrameworkSerializer{`0}.TryGetValueCallback)">
             <summary>
-            循环访问集合的枚举数。
+            注册尝试从指定流获取指定键的值回调函数。
             </summary>
+            <param name="version">尝试从指定流获取指定键的值回调函数的版本。</param>
+            <param name="callback">尝试从指定流获取指定键的值回调函数。</param>
         </member>
-        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.Current">
+        <member name="M:GameFramework.GameFrameworkSerializer`1.Serialize(System.IO.Stream,`0)">
             <summary>
-            获取当前结点。
+            序列化数据到目标流中。
             </summary>
+            <param name="stream">目标流。</param>
+            <param name="data">要序列化的数据。</param>
+            <returns>序列化数据是否成功。</returns>
         </member>
-        <member name="P:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.System#Collections#IEnumerator#Current">
+        <member name="M:GameFramework.GameFrameworkSerializer`1.Serialize(System.IO.Stream,`0,System.Byte)">
             <summary>
-            获取当前的枚举数。
+            序列化数据到目标流中。
             </summary>
+            <param name="stream">目标流。</param>
+            <param name="data">要序列化的数据。</param>
+            <param name="version">序列化回调函数的版本。</param>
+            <returns>序列化数据是否成功。</returns>
         </member>
-        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.Dispose">
+        <member name="M:GameFramework.GameFrameworkSerializer`1.Deserialize(System.IO.Stream)">
             <summary>
-            清理枚举数。
+            从指定流反序列化数据。
             </summary>
+            <param name="stream">指定流。</param>
+            <returns>反序列化的数据。</returns>
         </member>
-        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.MoveNext">
+        <member name="M:GameFramework.GameFrameworkSerializer`1.TryGetValue(System.IO.Stream,System.String,System.Object@)">
             <summary>
-            获取下一个结点。
+            尝试从指定流获取指定键的值。
             </summary>
-            <returns>返回下一个结点。</returns>
+            <param name="stream">指定流。</param>
+            <param name="key">指定键。</param>
+            <param name="value">指定键的值。</param>
+            <returns>从指定流获取指定键的值是否成功。</returns>
         </member>
-        <member name="M:GameFramework.GameFrameworkLinkedListRange`1.Enumerator.System#Collections#IEnumerator#Reset">
+        <member name="M:GameFramework.GameFrameworkSerializer`1.GetHeader">
             <summary>
-            重置枚举数。
+            获取数据头标识。
             </summary>
-        </member>
-        <member name="T:GameFramework.GameFrameworkSegment`1">
-            <summary>
-            数据片段。
-            </summary>
-            <typeparam name="T">数据源类型。</typeparam>
-        </member>
-        <member name="M:GameFramework.GameFrameworkSegment`1.#ctor(`0,System.Int32,System.Int32)">
-            <summary>
-            初始化数据片段的新实例。
-            </summary>
-            <param name="source">数据源。</param>
-            <param name="offset">偏移。</param>
-            <param name="length">长度。</param>
-        </member>
-        <member name="P:GameFramework.GameFrameworkSegment`1.Source">
-            <summary>
-            获取数据源。
-            </summary>
-        </member>
-        <member name="P:GameFramework.GameFrameworkSegment`1.Offset">
-            <summary>
-            获取偏移。
-            </summary>
-        </member>
-        <member name="P:GameFramework.GameFrameworkSegment`1.Length">
-            <summary>
-            获取长度。
-            </summary>
-        </member>
-        <member name="M:GameFramework.GameFrameworkSegment`1.GetHashCode">
-            <summary>
-            获取对象的哈希值。
-            </summary>
-            <returns>对象的哈希值。</returns>
-        </member>
-        <member name="M:GameFramework.GameFrameworkSegment`1.Equals(System.Object)">
-            <summary>
-            比较对象是否与自身相等。
-            </summary>
-            <param name="obj">要比较的对象。</param>
-            <returns>被比较的对象是否与自身相等。</returns>
-        </member>
-        <member name="M:GameFramework.GameFrameworkSegment`1.Equals(GameFramework.GameFrameworkSegment{`0})">
-            <summary>
-            比较对象是否与自身相等。
-            </summary>
-            <param name="value">要比较的对象。</param>
-            <returns>被比较的对象是否与自身相等。</returns>
-        </member>
-        <member name="M:GameFramework.GameFrameworkSegment`1.op_Equality(GameFramework.GameFrameworkSegment{`0},GameFramework.GameFrameworkSegment{`0})">
-            <summary>
-            判断两个对象是否相等。
-            </summary>
-            <param name="a">值 a。</param>
-            <param name="b">值 b。</param>
-            <returns>两个对象是否相等。</returns>
-        </member>
-        <member name="M:GameFramework.GameFrameworkSegment`1.op_Inequality(GameFramework.GameFrameworkSegment{`0},GameFramework.GameFrameworkSegment{`0})">
-            <summary>
-            判断两个对象是否不相等。
-            </summary>
-            <param name="a">值 a。</param>
-            <param name="b">值 b。</param>
-            <returns>两个对象是否不相等。</returns>
+            <returns>数据头标识。</returns>
         </member>
         <member name="T:GameFramework.GameFrameworkLog">
             <summary>
@@ -2344,9 +2423,9 @@
             初始化全局配置管理器的新实例。
             </summary>
         </member>
-        <member name="P:GameFramework.Config.ConfigManager.ConfigCount">
+        <member name="P:GameFramework.Config.ConfigManager.Count">
             <summary>
-            获取全局配置数量。
+            获取全局配置项数量。
             </summary>
         </member>
         <member name="E:GameFramework.Config.ConfigManager.LoadConfigSuccess">
@@ -2393,80 +2472,46 @@
             </summary>
             <param name="configHelper">全局配置辅助器。</param>
         </member>
-        <member name="M:GameFramework.Config.ConfigManager.LoadConfig(System.String,GameFramework.LoadType)">
+        <member name="M:GameFramework.Config.ConfigManager.LoadConfig(System.String)">
             <summary>
             加载全局配置。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
         </member>
-        <member name="M:GameFramework.Config.ConfigManager.LoadConfig(System.String,GameFramework.LoadType,System.Int32)">
+        <member name="M:GameFramework.Config.ConfigManager.LoadConfig(System.String,System.Int32)">
             <summary>
             加载全局配置。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
             <param name="priority">加载全局配置资源的优先级。</param>
         </member>
-        <member name="M:GameFramework.Config.ConfigManager.LoadConfig(System.String,GameFramework.LoadType,System.Object)">
+        <member name="M:GameFramework.Config.ConfigManager.LoadConfig(System.String,System.Object)">
             <summary>
             加载全局配置。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.Config.ConfigManager.LoadConfig(System.String,GameFramework.LoadType,System.Int32,System.Object)">
+        <member name="M:GameFramework.Config.ConfigManager.LoadConfig(System.String,System.Int32,System.Object)">
             <summary>
             加载全局配置。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
             <param name="priority">加载全局配置资源的优先级。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.Config.ConfigManager.ParseConfig(System.String)">
+        <member name="M:GameFramework.Config.ConfigManager.ParseConfig(System.Object)">
             <summary>
             解析全局配置。
             </summary>
-            <param name="text">要解析的全局配置文本。</param>
+            <param name="configData">要解析的全局配置数据。</param>
             <returns>是否解析全局配置成功。</returns>
         </member>
-        <member name="M:GameFramework.Config.ConfigManager.ParseConfig(System.String,System.Object)">
+        <member name="M:GameFramework.Config.ConfigManager.ParseConfig(System.Object,System.Object)">
             <summary>
             解析全局配置。
             </summary>
-            <param name="text">要解析的全局配置文本。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.ConfigManager.ParseConfig(System.Byte[])">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="bytes">要解析的全局配置二进制流。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.ConfigManager.ParseConfig(System.Byte[],System.Object)">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="bytes">要解析的全局配置二进制流。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.ConfigManager.ParseConfig(System.IO.Stream)">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="stream">要解析的全局配置二进制流。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.ConfigManager.ParseConfig(System.IO.Stream,System.Object)">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="stream">要解析的全局配置二进制流。</param>
+            <param name="configData">要解析的全局配置数据。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>是否解析全局配置成功。</returns>
         </member>
@@ -2564,36 +2609,20 @@
             全局配置辅助器接口。
             </summary>
         </member>
-        <member name="M:GameFramework.Config.IConfigHelper.LoadConfig(System.Object,GameFramework.LoadType,System.Object)">
+        <member name="M:GameFramework.Config.IConfigHelper.LoadConfig(System.String,System.Object,System.Object)">
             <summary>
             加载全局配置。
             </summary>
-            <param name="configAsset">全局配置资源。</param>
-            <param name="loadType">全局配置加载方式。</param>
+            <param name="configAssetName">全局配置资源名称。</param>
+            <param name="configObject">全局配置对象。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>是否加载成功。</returns>
         </member>
-        <member name="M:GameFramework.Config.IConfigHelper.ParseConfig(System.String,System.Object)">
+        <member name="M:GameFramework.Config.IConfigHelper.ParseConfig(System.Object,System.Object)">
             <summary>
             解析全局配置。
             </summary>
-            <param name="text">要解析的全局配置文本。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.IConfigHelper.ParseConfig(System.Byte[],System.Object)">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="bytes">要解析的全局配置二进制流。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.IConfigHelper.ParseConfig(System.IO.Stream,System.Object)">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="stream">要解析的全局配置二进制流。</param>
+            <param name="configData">要解析的全局配置数据。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>是否解析全局配置成功。</returns>
         </member>
@@ -2608,9 +2637,9 @@
             全局配置管理器接口。
             </summary>
         </member>
-        <member name="P:GameFramework.Config.IConfigManager.ConfigCount">
+        <member name="P:GameFramework.Config.IConfigManager.Count">
             <summary>
-            获取全局配置数量。
+            获取全局配置项数量。
             </summary>
         </member>
         <member name="E:GameFramework.Config.IConfigManager.LoadConfigSuccess">
@@ -2645,80 +2674,46 @@
             </summary>
             <param name="configHelper">全局配置辅助器。</param>
         </member>
-        <member name="M:GameFramework.Config.IConfigManager.LoadConfig(System.String,GameFramework.LoadType)">
+        <member name="M:GameFramework.Config.IConfigManager.LoadConfig(System.String)">
             <summary>
             加载全局配置。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
         </member>
-        <member name="M:GameFramework.Config.IConfigManager.LoadConfig(System.String,GameFramework.LoadType,System.Int32)">
+        <member name="M:GameFramework.Config.IConfigManager.LoadConfig(System.String,System.Int32)">
             <summary>
             加载全局配置。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
             <param name="priority">加载全局配置资源的优先级。</param>
         </member>
-        <member name="M:GameFramework.Config.IConfigManager.LoadConfig(System.String,GameFramework.LoadType,System.Object)">
+        <member name="M:GameFramework.Config.IConfigManager.LoadConfig(System.String,System.Object)">
             <summary>
             加载全局配置。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.Config.IConfigManager.LoadConfig(System.String,GameFramework.LoadType,System.Int32,System.Object)">
+        <member name="M:GameFramework.Config.IConfigManager.LoadConfig(System.String,System.Int32,System.Object)">
             <summary>
             加载全局配置。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
             <param name="priority">加载全局配置资源的优先级。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.Config.IConfigManager.ParseConfig(System.String)">
+        <member name="M:GameFramework.Config.IConfigManager.ParseConfig(System.Object)">
             <summary>
             解析全局配置。
             </summary>
-            <param name="text">要解析的全局配置文本。</param>
+            <param name="configData">要解析的全局配置数据。</param>
             <returns>是否解析全局配置成功。</returns>
         </member>
-        <member name="M:GameFramework.Config.IConfigManager.ParseConfig(System.String,System.Object)">
+        <member name="M:GameFramework.Config.IConfigManager.ParseConfig(System.Object,System.Object)">
             <summary>
             解析全局配置。
             </summary>
-            <param name="text">要解析的全局配置文本。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.IConfigManager.ParseConfig(System.Byte[])">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="bytes">要解析的全局配置二进制流。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.IConfigManager.ParseConfig(System.Byte[],System.Object)">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="bytes">要解析的全局配置二进制流。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.IConfigManager.ParseConfig(System.IO.Stream)">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="stream">要解析的全局配置二进制流。</param>
-            <returns>是否解析全局配置成功。</returns>
-        </member>
-        <member name="M:GameFramework.Config.IConfigManager.ParseConfig(System.IO.Stream,System.Object)">
-            <summary>
-            解析全局配置。
-            </summary>
-            <param name="stream">要解析的全局配置二进制流。</param>
+            <param name="configData">要解析的全局配置数据。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>是否解析全局配置成功。</returns>
         </member>
@@ -2745,6 +2740,7 @@
             移除指定全局配置项。
             </summary>
             <param name="configName">要移除全局配置项的名称。</param>
+            <returns>是否移除全局配置项成功。</returns>
         </member>
         <member name="M:GameFramework.Config.IConfigManager.RemoveAllConfigs">
             <summary>
@@ -2877,11 +2873,6 @@
             获取全局配置资源名称。
             </summary>
         </member>
-        <member name="P:GameFramework.Config.LoadConfigFailureEventArgs.LoadType">
-            <summary>
-            获取全局配置加载方式。
-            </summary>
-        </member>
         <member name="P:GameFramework.Config.LoadConfigFailureEventArgs.ErrorMessage">
             <summary>
             获取错误信息。
@@ -2892,12 +2883,11 @@
             获取用户自定义数据。
             </summary>
         </member>
-        <member name="M:GameFramework.Config.LoadConfigFailureEventArgs.Create(System.String,GameFramework.LoadType,System.String,System.Object)">
+        <member name="M:GameFramework.Config.LoadConfigFailureEventArgs.Create(System.String,System.String,System.Object)">
             <summary>
             创建加载全局配置失败事件。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
             <param name="errorMessage">错误信息。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>创建的加载全局配置失败事件。</returns>
@@ -2922,11 +2912,6 @@
             获取全局配置资源名称。
             </summary>
         </member>
-        <member name="P:GameFramework.Config.LoadConfigSuccessEventArgs.LoadType">
-            <summary>
-            获取全局配置加载方式。
-            </summary>
-        </member>
         <member name="P:GameFramework.Config.LoadConfigSuccessEventArgs.Duration">
             <summary>
             获取加载持续时间。
@@ -2937,12 +2922,11 @@
             获取用户自定义数据。
             </summary>
         </member>
-        <member name="M:GameFramework.Config.LoadConfigSuccessEventArgs.Create(System.String,GameFramework.LoadType,System.Single,System.Object)">
+        <member name="M:GameFramework.Config.LoadConfigSuccessEventArgs.Create(System.String,System.Single,System.Object)">
             <summary>
             创建加载全局配置成功事件。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
             <param name="duration">加载持续时间。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>创建的加载全局配置成功事件。</returns>
@@ -2967,11 +2951,6 @@
             获取全局配置资源名称。
             </summary>
         </member>
-        <member name="P:GameFramework.Config.LoadConfigUpdateEventArgs.LoadType">
-            <summary>
-            获取全局配置加载方式。
-            </summary>
-        </member>
         <member name="P:GameFramework.Config.LoadConfigUpdateEventArgs.Progress">
             <summary>
             获取加载全局配置进度。
@@ -2982,12 +2961,11 @@
             获取用户自定义数据。
             </summary>
         </member>
-        <member name="M:GameFramework.Config.LoadConfigUpdateEventArgs.Create(System.String,GameFramework.LoadType,System.Single,System.Object)">
+        <member name="M:GameFramework.Config.LoadConfigUpdateEventArgs.Create(System.String,System.Single,System.Object)">
             <summary>
             创建加载全局配置更新事件。
             </summary>
             <param name="configAssetName">全局配置资源名称。</param>
-            <param name="loadType">全局配置加载方式。</param>
             <param name="progress">加载全局配置进度。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>创建的加载全局配置更新事件。</returns>
@@ -3565,25 +3543,12 @@
             获取数据表行数。
             </summary>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableBase.AddDataRow(GameFramework.GameFrameworkSegment{System.String})">
+        <member name="M:GameFramework.DataTable.DataTableBase.AddDataRow(GameFramework.GameFrameworkDataSegment,System.Object)">
             <summary>
             增加数据表行。
             </summary>
             <param name="dataRowSegment">要解析的数据表行片段。</param>
-            <returns>是否增加数据表行成功。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableBase.AddDataRow(GameFramework.GameFrameworkSegment{System.Byte[]})">
-            <summary>
-            增加数据表行。
-            </summary>
-            <param name="dataRowSegment">要解析的数据表行片段。</param>
-            <returns>是否增加数据表行成功。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableBase.AddDataRow(GameFramework.GameFrameworkSegment{System.IO.Stream})">
-            <summary>
-            增加数据表行。
-            </summary>
-            <param name="dataRowSegment">要解析的数据表行片段。</param>
+            <param name="dataTableUserData">数据表用户自定义数据。</param>
             <returns>是否增加数据表行成功。</returns>
         </member>
         <member name="M:GameFramework.DataTable.DataTableBase.Shutdown">
@@ -3650,35 +3615,31 @@
             </summary>
             <param name="dataTableHelper">数据表辅助器。</param>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.LoadDataTable(System.String,GameFramework.LoadType)">
+        <member name="M:GameFramework.DataTable.DataTableManager.LoadDataTable(System.String)">
             <summary>
             加载数据表。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.LoadDataTable(System.String,GameFramework.LoadType,System.Int32)">
+        <member name="M:GameFramework.DataTable.DataTableManager.LoadDataTable(System.String,System.Int32)">
             <summary>
             加载数据表。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
             <param name="priority">加载数据表资源的优先级。</param>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.LoadDataTable(System.String,GameFramework.LoadType,System.Object)">
+        <member name="M:GameFramework.DataTable.DataTableManager.LoadDataTable(System.String,System.Object)">
             <summary>
             加载数据表。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.LoadDataTable(System.String,GameFramework.LoadType,System.Int32,System.Object)">
+        <member name="M:GameFramework.DataTable.DataTableManager.LoadDataTable(System.String,System.Int32,System.Object)">
             <summary>
             加载数据表。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
             <param name="priority">加载数据表资源的优先级。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
@@ -3754,106 +3715,38 @@
             </summary>
             <param name="results">所有数据表。</param>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable``1(System.String)">
+        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable``1(System.Object)">
             <summary>
             创建数据表。
             </summary>
             <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="text">要解析的数据表文本。</param>
+            <param name="dataTableData">要解析的数据表数据。</param>
             <returns>要创建的数据表。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable(System.Type,System.String)">
+        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable(System.Type,System.Object)">
             <summary>
             创建数据表。
             </summary>
             <param name="dataRowType">数据表行的类型。</param>
-            <param name="text">要解析的数据表文本。</param>
+            <param name="dataTableData">要解析的数据表数据。</param>
             <returns>要创建的数据表。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable``1(System.String,System.String)">
-            <summary>
-            创建数据表。
-            </summary>
-            <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="name">数据表名称。</param>
-            <param name="text">要解析的数据表文本。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable(System.Type,System.String,System.String)">
-            <summary>
-            创建数据表。
-            </summary>
-            <param name="dataRowType">数据表行的类型。</param>
-            <param name="name">数据表名称。</param>
-            <param name="text">要解析的数据表文本。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable``1(System.Byte[])">
-            <summary>
-            创建数据表。
-            </summary>
-            <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="bytes">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable(System.Type,System.Byte[])">
-            <summary>
-            创建数据表。
-            </summary>
-            <param name="dataRowType">数据表行的类型。</param>
-            <param name="bytes">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable``1(System.String,System.Byte[])">
+        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable``1(System.String,System.Object)">
             <summary>
             创建数据表。
             </summary>
             <typeparam name="T">数据表行的类型。</typeparam>
             <param name="name">数据表名称。</param>
-            <param name="bytes">要解析的数据表二进制流。</param>
+            <param name="dataTableData">要解析的数据表数据。</param>
             <returns>要创建的数据表。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable(System.Type,System.String,System.Byte[])">
+        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable(System.Type,System.String,System.Object)">
             <summary>
             创建数据表。
             </summary>
             <param name="dataRowType">数据表行的类型。</param>
             <param name="name">数据表名称。</param>
-            <param name="bytes">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable``1(System.IO.Stream)">
-            <summary>
-            创建数据表。
-            </summary>
-            <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="stream">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable(System.Type,System.IO.Stream)">
-            <summary>
-            创建数据表。
-            </summary>
-            <param name="dataRowType">数据表行的类型。</param>
-            <param name="stream">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable``1(System.String,System.IO.Stream)">
-            <summary>
-            创建数据表。
-            </summary>
-            <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="name">数据表名称。</param>
-            <param name="stream">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.CreateDataTable(System.Type,System.String,System.IO.Stream)">
-            <summary>
-            创建数据表。
-            </summary>
-            <param name="dataRowType">数据表行的类型。</param>
-            <param name="name">数据表名称。</param>
-            <param name="stream">要解析的数据表二进制流。</param>
+            <param name="dataTableData">要解析的数据表数据。</param>
             <returns>要创建的数据表。</returns>
         </member>
         <member name="M:GameFramework.DataTable.DataTableManager.DestroyDataTable``1">
@@ -4023,6 +3916,26 @@
             </summary>
             <param name="results">所有数据表行。</param>
         </member>
+        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.AddDataRow(GameFramework.GameFrameworkDataSegment,System.Object)">
+            <summary>
+            增加数据表行。
+            </summary>
+            <param name="dataRowSegment">要解析的数据表行片段。</param>
+            <param name="dataTableUserData">数据表用户自定义数据。</param>
+            <returns>是否增加数据表行成功。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.RemoveDataRow(System.Int32)">
+            <summary>
+            移除指定数据表行。
+            </summary>
+            <param name="id">要移除数据表行的编号。</param>
+            <returns>是否移除数据表行成功。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.RemoveAllDataRows">
+            <summary>
+            清空所有数据表行。
+            </summary>
+        </member>
         <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.GetEnumerator">
             <summary>
             返回一个循环访问数据表的枚举器。
@@ -4034,27 +3947,6 @@
             关闭并清理数据表。
             </summary>
         </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.AddDataRow(GameFramework.GameFrameworkSegment{System.String})">
-            <summary>
-            增加数据表行。
-            </summary>
-            <param name="dataRowSegment">要解析的数据表行片段。</param>
-            <returns>是否增加数据表行成功。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.AddDataRow(GameFramework.GameFrameworkSegment{System.Byte[]})">
-            <summary>
-            增加数据表行。
-            </summary>
-            <param name="dataRowSegment">要解析的数据表行片段。</param>
-            <returns>是否增加数据表行成功。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.DataTableManager.DataTable`1.AddDataRow(GameFramework.GameFrameworkSegment{System.IO.Stream})">
-            <summary>
-            增加数据表行。
-            </summary>
-            <param name="dataRowSegment">要解析的数据表行片段。</param>
-            <returns>是否增加数据表行成功。</returns>
-        </member>
         <member name="T:GameFramework.DataTable.IDataRow">
             <summary>
             数据表行接口。
@@ -4065,25 +3957,12 @@
             获取数据表行的编号。
             </summary>
         </member>
-        <member name="M:GameFramework.DataTable.IDataRow.ParseDataRow(GameFramework.GameFrameworkSegment{System.String})">
+        <member name="M:GameFramework.DataTable.IDataRow.ParseDataRow(GameFramework.GameFrameworkDataSegment,System.Object)">
             <summary>
-            数据表行文本解析器。
+            数据表行解析器。
             </summary>
             <param name="dataRowSegment">要解析的数据表行片段。</param>
-            <returns>是否解析数据表行成功。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataRow.ParseDataRow(GameFramework.GameFrameworkSegment{System.Byte[]})">
-            <summary>
-            数据表行二进制流解析器。
-            </summary>
-            <param name="dataRowSegment">要解析的数据表行片段。</param>
-            <returns>是否解析数据表行成功。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataRow.ParseDataRow(GameFramework.GameFrameworkSegment{System.IO.Stream})">
-            <summary>
-            数据表行二进制流解析器。
-            </summary>
-            <param name="dataRowSegment">要解析的数据表行片段。</param>
+            <param name="dataTableUserData">数据表用户自定义数据。</param>
             <returns>是否解析数据表行成功。</returns>
         </member>
         <member name="T:GameFramework.DataTable.IDataTable`1">
@@ -4214,40 +4093,53 @@
             </summary>
             <param name="results">所有数据表行。</param>
         </member>
+        <member name="M:GameFramework.DataTable.IDataTable`1.AddDataRow(GameFramework.GameFrameworkDataSegment,System.Object)">
+            <summary>
+            增加数据表行。
+            </summary>
+            <param name="dataRowSegment">要解析的数据表行片段。</param>
+            <param name="dataTableUserData">数据表用户自定义数据。</param>
+            <returns>是否增加数据表行成功。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable`1.RemoveDataRow(System.Int32)">
+            <summary>
+            移除指定数据表行。
+            </summary>
+            <param name="id">要移除数据表行的编号。</param>
+            <returns>是否移除数据表行成功。</returns>
+        </member>
+        <member name="M:GameFramework.DataTable.IDataTable`1.RemoveAllDataRows">
+            <summary>
+            清空所有数据表行。
+            </summary>
+        </member>
         <member name="T:GameFramework.DataTable.IDataTableHelper">
             <summary>
             数据表辅助器接口。
             </summary>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableHelper.LoadDataTable(System.Object,GameFramework.LoadType,System.Object)">
+        <member name="M:GameFramework.DataTable.IDataTableHelper.LoadDataTable(System.String,System.Object,System.Object)">
             <summary>
             加载数据表。
             </summary>
-            <param name="dataTableAsset">数据表资源。</param>
-            <param name="loadType">数据表加载方式。</param>
+            <param name="dataTableAssetName">数据表资源名称。</param>
+            <param name="dataTableObject">数据表对象。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>是否加载成功。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableHelper.GetDataRowSegments(System.String)">
+        <member name="M:GameFramework.DataTable.IDataTableHelper.GetDataRowSegments(System.Object)">
             <summary>
             获取数据表行片段。
             </summary>
-            <param name="text">要解析的数据表文本。</param>
+            <param name="dataTableData">要解析的数据表数据。</param>
             <returns>数据表行片段。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableHelper.GetDataRowSegments(System.Byte[])">
+        <member name="M:GameFramework.DataTable.IDataTableHelper.GetDataTableUserData(System.Object)">
             <summary>
-            获取数据表行片段。
+            获取数据表用户自定义数据。
             </summary>
-            <param name="bytes">要解析的数据表二进制流。</param>
-            <returns>数据表行片段。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataTableHelper.GetDataRowSegments(System.IO.Stream)">
-            <summary>
-            获取数据表行片段。
-            </summary>
-            <param name="stream">要解析的数据表二进制流。</param>
-            <returns>数据表行片段。</returns>
+            <param name="dataTableData">要解析的数据表数据。</param>
+            <returns>数据表用户自定义数据。</returns>
         </member>
         <member name="M:GameFramework.DataTable.IDataTableHelper.ReleaseDataTableAsset(System.Object)">
             <summary>
@@ -4297,35 +4189,31 @@
             </summary>
             <param name="dataTableHelper">数据表辅助器。</param>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.LoadDataTable(System.String,GameFramework.LoadType)">
+        <member name="M:GameFramework.DataTable.IDataTableManager.LoadDataTable(System.String)">
             <summary>
             加载数据表。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.LoadDataTable(System.String,GameFramework.LoadType,System.Int32)">
+        <member name="M:GameFramework.DataTable.IDataTableManager.LoadDataTable(System.String,System.Int32)">
             <summary>
             加载数据表。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
             <param name="priority">加载数据表资源的优先级。</param>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.LoadDataTable(System.String,GameFramework.LoadType,System.Object)">
+        <member name="M:GameFramework.DataTable.IDataTableManager.LoadDataTable(System.String,System.Object)">
             <summary>
             加载数据表。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.LoadDataTable(System.String,GameFramework.LoadType,System.Int32,System.Object)">
+        <member name="M:GameFramework.DataTable.IDataTableManager.LoadDataTable(System.String,System.Int32,System.Object)">
             <summary>
             加载数据表。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
             <param name="priority">加载数据表资源的优先级。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
@@ -4401,106 +4289,38 @@
             </summary>
             <param name="results">所有数据表。</param>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable``1(System.String)">
+        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable``1(System.Object)">
             <summary>
             创建数据表。
             </summary>
             <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="text">要解析的数据表文本。</param>
+            <param name="dataTableData">要解析的数据表数据。</param>
             <returns>要创建的数据表。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable(System.Type,System.String)">
+        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable(System.Type,System.Object)">
             <summary>
             创建数据表。
             </summary>
             <param name="dataRowType">数据表行的类型。</param>
-            <param name="text">要解析的数据表文本。</param>
+            <param name="dataTableData">要解析的数据表数据。</param>
             <returns>要创建的数据表。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable``1(System.String,System.String)">
-            <summary>
-            创建数据表。
-            </summary>
-            <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="name">数据表名称。</param>
-            <param name="text">要解析的数据表文本。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable(System.Type,System.String,System.String)">
-            <summary>
-            创建数据表。
-            </summary>
-            <param name="dataRowType">数据表行的类型。</param>
-            <param name="name">数据表名称。</param>
-            <param name="text">要解析的数据表文本。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable``1(System.Byte[])">
-            <summary>
-            创建数据表。
-            </summary>
-            <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="bytes">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable(System.Type,System.Byte[])">
-            <summary>
-            创建数据表。
-            </summary>
-            <param name="dataRowType">数据表行的类型。</param>
-            <param name="bytes">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable``1(System.String,System.Byte[])">
+        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable``1(System.String,System.Object)">
             <summary>
             创建数据表。
             </summary>
             <typeparam name="T">数据表行的类型。</typeparam>
             <param name="name">数据表名称。</param>
-            <param name="bytes">要解析的数据表二进制流。</param>
+            <param name="dataTableData">要解析的数据表数据。</param>
             <returns>要创建的数据表。</returns>
         </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable(System.Type,System.String,System.Byte[])">
+        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable(System.Type,System.String,System.Object)">
             <summary>
             创建数据表。
             </summary>
             <param name="dataRowType">数据表行的类型。</param>
             <param name="name">数据表名称。</param>
-            <param name="bytes">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable``1(System.IO.Stream)">
-            <summary>
-            创建数据表。
-            </summary>
-            <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="stream">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable(System.Type,System.IO.Stream)">
-            <summary>
-            创建数据表。
-            </summary>
-            <param name="dataRowType">数据表行的类型。</param>
-            <param name="stream">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable``1(System.String,System.IO.Stream)">
-            <summary>
-            创建数据表。
-            </summary>
-            <typeparam name="T">数据表行的类型。</typeparam>
-            <param name="name">数据表名称。</param>
-            <param name="stream">要解析的数据表二进制流。</param>
-            <returns>要创建的数据表。</returns>
-        </member>
-        <member name="M:GameFramework.DataTable.IDataTableManager.CreateDataTable(System.Type,System.String,System.IO.Stream)">
-            <summary>
-            创建数据表。
-            </summary>
-            <param name="dataRowType">数据表行的类型。</param>
-            <param name="name">数据表名称。</param>
-            <param name="stream">要解析的数据表二进制流。</param>
+            <param name="dataTableData">要解析的数据表数据。</param>
             <returns>要创建的数据表。</returns>
         </member>
         <member name="M:GameFramework.DataTable.IDataTableManager.DestroyDataTable``1">
@@ -4614,11 +4434,6 @@
             获取数据表资源名称。
             </summary>
         </member>
-        <member name="P:GameFramework.DataTable.LoadDataTableFailureEventArgs.LoadType">
-            <summary>
-            获取数据表加载方式。
-            </summary>
-        </member>
         <member name="P:GameFramework.DataTable.LoadDataTableFailureEventArgs.ErrorMessage">
             <summary>
             获取错误信息。
@@ -4629,12 +4444,11 @@
             获取用户自定义数据。
             </summary>
         </member>
-        <member name="M:GameFramework.DataTable.LoadDataTableFailureEventArgs.Create(System.String,GameFramework.LoadType,System.String,System.Object)">
+        <member name="M:GameFramework.DataTable.LoadDataTableFailureEventArgs.Create(System.String,System.String,System.Object)">
             <summary>
             创建加载数据表失败事件。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
             <param name="errorMessage">错误信息。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>创建的加载数据表失败事件。</returns>
@@ -4659,11 +4473,6 @@
             获取数据表资源名称。
             </summary>
         </member>
-        <member name="P:GameFramework.DataTable.LoadDataTableSuccessEventArgs.LoadType">
-            <summary>
-            获取数据表加载方式。
-            </summary>
-        </member>
         <member name="P:GameFramework.DataTable.LoadDataTableSuccessEventArgs.Duration">
             <summary>
             获取加载持续时间。
@@ -4674,12 +4483,11 @@
             获取用户自定义数据。
             </summary>
         </member>
-        <member name="M:GameFramework.DataTable.LoadDataTableSuccessEventArgs.Create(System.String,GameFramework.LoadType,System.Single,System.Object)">
+        <member name="M:GameFramework.DataTable.LoadDataTableSuccessEventArgs.Create(System.String,System.Single,System.Object)">
             <summary>
             创建加载数据表成功事件。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
             <param name="duration">加载持续时间。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>创建的加载数据表成功事件。</returns>
@@ -4704,11 +4512,6 @@
             获取数据表资源名称。
             </summary>
         </member>
-        <member name="P:GameFramework.DataTable.LoadDataTableUpdateEventArgs.LoadType">
-            <summary>
-            获取数据表加载方式。
-            </summary>
-        </member>
         <member name="P:GameFramework.DataTable.LoadDataTableUpdateEventArgs.Progress">
             <summary>
             获取加载数据表进度。
@@ -4719,12 +4522,11 @@
             获取用户自定义数据。
             </summary>
         </member>
-        <member name="M:GameFramework.DataTable.LoadDataTableUpdateEventArgs.Create(System.String,GameFramework.LoadType,System.Single,System.Object)">
+        <member name="M:GameFramework.DataTable.LoadDataTableUpdateEventArgs.Create(System.String,System.Single,System.Object)">
             <summary>
             创建加载数据表更新事件。
             </summary>
             <param name="dataTableAssetName">数据表资源名称。</param>
-            <param name="loadType">数据表加载方式。</param>
             <param name="progress">加载数据表进度。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>创建的加载数据表更新事件。</returns>
@@ -5034,15 +4836,21 @@
             初始化下载代理辅助器错误事件的新实例。
             </summary>
         </member>
+        <member name="P:GameFramework.Download.DownloadAgentHelperErrorEventArgs.DeleteDownloading">
+            <summary>
+            获取是否需要删除正在下载的文件。
+            </summary>
+        </member>
         <member name="P:GameFramework.Download.DownloadAgentHelperErrorEventArgs.ErrorMessage">
             <summary>
             获取错误信息。
             </summary>
         </member>
-        <member name="M:GameFramework.Download.DownloadAgentHelperErrorEventArgs.Create(System.String)">
+        <member name="M:GameFramework.Download.DownloadAgentHelperErrorEventArgs.Create(System.Boolean,System.String)">
             <summary>
             创建下载代理辅助器错误事件。
             </summary>
+            <param name="deleteDownloading">是否需要删除正在下载的文件。</param>
             <param name="errorMessage">错误信息。</param>
             <returns>创建的下载代理辅助器错误事件。</returns>
         </member>
@@ -8249,36 +8057,20 @@
             获取系统语言。
             </summary>
         </member>
-        <member name="M:GameFramework.Localization.ILocalizationHelper.LoadDictionary(System.Object,GameFramework.LoadType,System.Object)">
+        <member name="M:GameFramework.Localization.ILocalizationHelper.LoadDictionary(System.String,System.Object,System.Object)">
             <summary>
             加载字典。
             </summary>
-            <param name="dictionaryAsset">字典资源。</param>
-            <param name="loadType">字典加载方式。</param>
+            <param name="dictionaryAssetName">字典资源名称。</param>
+            <param name="dictionaryObject">字典对象。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>是否加载成功。</returns>
         </member>
-        <member name="M:GameFramework.Localization.ILocalizationHelper.ParseDictionary(System.String,System.Object)">
+        <member name="M:GameFramework.Localization.ILocalizationHelper.ParseDictionary(System.Object,System.Object)">
             <summary>
             解析字典。
             </summary>
-            <param name="text">要解析的字典文本。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.ILocalizationHelper.ParseDictionary(System.Byte[],System.Object)">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="bytes">要解析的字典二进制流。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.ILocalizationHelper.ParseDictionary(System.IO.Stream,System.Object)">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="stream">要解析的字典二进制流。</param>
+            <param name="dictionaryData">要解析的字典数据。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>是否解析字典成功。</returns>
         </member>
@@ -8340,80 +8132,46 @@
             </summary>
             <param name="localizationHelper">本地化辅助器。</param>
         </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.LoadDictionary(System.String,GameFramework.LoadType)">
+        <member name="M:GameFramework.Localization.ILocalizationManager.LoadDictionary(System.String)">
             <summary>
             加载字典。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
         </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.LoadDictionary(System.String,GameFramework.LoadType,System.Int32)">
+        <member name="M:GameFramework.Localization.ILocalizationManager.LoadDictionary(System.String,System.Int32)">
             <summary>
             加载字典。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
             <param name="priority">加载字典资源的优先级。</param>
         </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.LoadDictionary(System.String,GameFramework.LoadType,System.Object)">
+        <member name="M:GameFramework.Localization.ILocalizationManager.LoadDictionary(System.String,System.Object)">
             <summary>
             加载字典。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.LoadDictionary(System.String,GameFramework.LoadType,System.Int32,System.Object)">
+        <member name="M:GameFramework.Localization.ILocalizationManager.LoadDictionary(System.String,System.Int32,System.Object)">
             <summary>
             加载字典。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
             <param name="priority">加载字典资源的优先级。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.ParseDictionary(System.String)">
+        <member name="M:GameFramework.Localization.ILocalizationManager.ParseDictionary(System.Object)">
             <summary>
             解析字典。
             </summary>
-            <param name="text">要解析的字典文本。</param>
+            <param name="dictionaryData">要解析的字典数据。</param>
             <returns>是否解析字典成功。</returns>
         </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.ParseDictionary(System.String,System.Object)">
+        <member name="M:GameFramework.Localization.ILocalizationManager.ParseDictionary(System.Object,System.Object)">
             <summary>
             解析字典。
             </summary>
-            <param name="text">要解析的字典文本。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.ParseDictionary(System.Byte[])">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="bytes">要解析的字典二进制流。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.ParseDictionary(System.Byte[],System.Object)">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="bytes">要解析的字典二进制流。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.ParseDictionary(System.IO.Stream)">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="stream">要解析的字典二进制流。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.ILocalizationManager.ParseDictionary(System.IO.Stream,System.Object)">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="stream">要解析的字典二进制流。</param>
+            <param name="dictionaryData">要解析的字典数据。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>是否解析字典成功。</returns>
         </member>
@@ -8487,6 +8245,11 @@
             </summary>
             <param name="key">字典主键。</param>
             <returns>是否移除字典成功。</returns>
+        </member>
+        <member name="M:GameFramework.Localization.ILocalizationManager.RemoveAllRawStrings">
+            <summary>
+            清空所有字典。
+            </summary>
         </member>
         <member name="T:GameFramework.Localization.Language">
             <summary>
@@ -8814,11 +8577,6 @@
             获取字典资源名称。
             </summary>
         </member>
-        <member name="P:GameFramework.Localization.LoadDictionaryFailureEventArgs.LoadType">
-            <summary>
-            获取字典加载方式。
-            </summary>
-        </member>
         <member name="P:GameFramework.Localization.LoadDictionaryFailureEventArgs.ErrorMessage">
             <summary>
             获取错误信息。
@@ -8829,12 +8587,11 @@
             获取用户自定义数据。
             </summary>
         </member>
-        <member name="M:GameFramework.Localization.LoadDictionaryFailureEventArgs.Create(System.String,GameFramework.LoadType,System.String,System.Object)">
+        <member name="M:GameFramework.Localization.LoadDictionaryFailureEventArgs.Create(System.String,System.String,System.Object)">
             <summary>
             创建加载字典失败事件。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
             <param name="errorMessage">错误信息。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>创建的加载字典失败事件。</returns>
@@ -8859,11 +8616,6 @@
             获取字典资源名称。
             </summary>
         </member>
-        <member name="P:GameFramework.Localization.LoadDictionarySuccessEventArgs.LoadType">
-            <summary>
-            获取字典加载方式。
-            </summary>
-        </member>
         <member name="P:GameFramework.Localization.LoadDictionarySuccessEventArgs.Duration">
             <summary>
             获取加载持续时间。
@@ -8874,12 +8626,11 @@
             获取用户自定义数据。
             </summary>
         </member>
-        <member name="M:GameFramework.Localization.LoadDictionarySuccessEventArgs.Create(System.String,GameFramework.LoadType,System.Single,System.Object)">
+        <member name="M:GameFramework.Localization.LoadDictionarySuccessEventArgs.Create(System.String,System.Single,System.Object)">
             <summary>
             创建加载字典成功事件。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
             <param name="duration">加载持续时间。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>创建的加载字典成功事件。</returns>
@@ -8904,11 +8655,6 @@
             获取字典资源名称。
             </summary>
         </member>
-        <member name="P:GameFramework.Localization.LoadDictionaryUpdateEventArgs.LoadType">
-            <summary>
-            获取字典加载方式。
-            </summary>
-        </member>
         <member name="P:GameFramework.Localization.LoadDictionaryUpdateEventArgs.Progress">
             <summary>
             获取加载字典进度。
@@ -8919,12 +8665,11 @@
             获取用户自定义数据。
             </summary>
         </member>
-        <member name="M:GameFramework.Localization.LoadDictionaryUpdateEventArgs.Create(System.String,GameFramework.LoadType,System.Single,System.Object)">
+        <member name="M:GameFramework.Localization.LoadDictionaryUpdateEventArgs.Create(System.String,System.Single,System.Object)">
             <summary>
             创建加载字典更新事件。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
             <param name="progress">加载字典进度。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>创建的加载字典更新事件。</returns>
@@ -9003,80 +8748,46 @@
             </summary>
             <param name="localizationHelper">本地化辅助器。</param>
         </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.LoadDictionary(System.String,GameFramework.LoadType)">
+        <member name="M:GameFramework.Localization.LocalizationManager.LoadDictionary(System.String)">
             <summary>
             加载字典。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
         </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.LoadDictionary(System.String,GameFramework.LoadType,System.Int32)">
+        <member name="M:GameFramework.Localization.LocalizationManager.LoadDictionary(System.String,System.Int32)">
             <summary>
             加载字典。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
             <param name="priority">加载字典资源的优先级。</param>
         </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.LoadDictionary(System.String,GameFramework.LoadType,System.Object)">
+        <member name="M:GameFramework.Localization.LocalizationManager.LoadDictionary(System.String,System.Object)">
             <summary>
             加载字典。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.LoadDictionary(System.String,GameFramework.LoadType,System.Int32,System.Object)">
+        <member name="M:GameFramework.Localization.LocalizationManager.LoadDictionary(System.String,System.Int32,System.Object)">
             <summary>
             加载字典。
             </summary>
             <param name="dictionaryAssetName">字典资源名称。</param>
-            <param name="loadType">字典加载方式。</param>
             <param name="priority">加载字典资源的优先级。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.ParseDictionary(System.String)">
+        <member name="M:GameFramework.Localization.LocalizationManager.ParseDictionary(System.Object)">
             <summary>
             解析字典。
             </summary>
-            <param name="text">要解析的字典文本。</param>
+            <param name="dictionaryData">要解析的字典数据。</param>
             <returns>是否解析字典成功。</returns>
         </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.ParseDictionary(System.String,System.Object)">
+        <member name="M:GameFramework.Localization.LocalizationManager.ParseDictionary(System.Object,System.Object)">
             <summary>
             解析字典。
             </summary>
-            <param name="text">要解析的字典文本。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.ParseDictionary(System.Byte[])">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="bytes">要解析的字典二进制流。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.ParseDictionary(System.Byte[],System.Object)">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="bytes">要解析的字典二进制流。</param>
-            <param name="userData">用户自定义数据。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.ParseDictionary(System.IO.Stream)">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="stream">要解析的字典二进制流。</param>
-            <returns>是否解析字典成功。</returns>
-        </member>
-        <member name="M:GameFramework.Localization.LocalizationManager.ParseDictionary(System.IO.Stream,System.Object)">
-            <summary>
-            解析字典。
-            </summary>
-            <param name="stream">要解析的字典二进制流。</param>
+            <param name="dictionaryData">要解析的字典数据。</param>
             <param name="userData">用户自定义数据。</param>
             <returns>是否解析字典成功。</returns>
         </member>
@@ -9150,6 +8861,11 @@
             </summary>
             <param name="key">字典主键。</param>
             <returns>是否移除字典成功。</returns>
+        </member>
+        <member name="M:GameFramework.Localization.LocalizationManager.RemoveAllRawStrings">
+            <summary>
+            清空所有字典。
+            </summary>
         </member>
         <member name="T:GameFramework.Network.AddressFamily">
             <summary>
@@ -12344,6 +12060,26 @@
             <param name="bytes">待解密的资源二进制流。</param>
             <returns>解密后的资源二进制流。</returns>
         </member>
+        <member name="T:GameFramework.Resource.HasAssetResult">
+            <summary>
+            检查资源是否存在的结果。
+            </summary>
+        </member>
+        <member name="F:GameFramework.Resource.HasAssetResult.NotExist">
+            <summary>
+            不存在资源。
+            </summary>
+        </member>
+        <member name="F:GameFramework.Resource.HasAssetResult.Asset">
+            <summary>
+            存在资源。
+            </summary>
+        </member>
+        <member name="F:GameFramework.Resource.HasAssetResult.Binary">
+            <summary>
+            存在二进制资源。
+            </summary>
+        </member>
         <member name="T:GameFramework.Resource.ILoadResourceAgentHelper">
             <summary>
             加载资源代理辅助器接口。
@@ -12385,12 +12121,11 @@
             </summary>
             <param name="fullPath">要加载资源的完整路径名。</param>
         </member>
-        <member name="M:GameFramework.Resource.ILoadResourceAgentHelper.ReadBytes(System.String,System.Int32)">
+        <member name="M:GameFramework.Resource.ILoadResourceAgentHelper.ReadBytes(System.String)">
             <summary>
             通过加载资源代理辅助器开始异步读取资源二进制流。
             </summary>
             <param name="fullPath">要加载资源的完整路径名。</param>
-            <param name="loadType">资源加载方式。</param>
         </member>
         <member name="M:GameFramework.Resource.ILoadResourceAgentHelper.ParseBytes(System.Byte[])">
             <summary>
@@ -12479,12 +12214,13 @@
             资源辅助器接口。
             </summary>
         </member>
-        <member name="M:GameFramework.Resource.IResourceHelper.LoadBytes(System.String,GameFramework.Resource.LoadBytesCallback)">
+        <member name="M:GameFramework.Resource.IResourceHelper.LoadBytes(System.String,GameFramework.Resource.LoadBytesCallbacks,System.Object)">
             <summary>
-            直接从指定文件路径读取数据流。
+            直接从指定文件路径加载数据流。
             </summary>
             <param name="fileUri">文件路径。</param>
-            <param name="loadBytesCallback">读取数据流回调函数。</param>
+            <param name="loadBytesCallbacks">加载数据流回调函数集。</param>
+            <param name="userData">用户自定义数据。</param>
         </member>
         <member name="M:GameFramework.Resource.IResourceHelper.UnloadScene(System.String,GameFramework.Resource.UnloadSceneCallbacks,System.Object)">
             <summary>
@@ -12525,6 +12261,26 @@
             获取当前变体。
             </summary>
         </member>
+        <member name="P:GameFramework.Resource.IResourceManager.PackageVersionListSerializer">
+            <summary>
+            获取单机模式版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.IResourceManager.UpdatableVersionListSerializer">
+            <summary>
+            获取可更新模式版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.IResourceManager.ReadOnlyVersionListSerializer">
+            <summary>
+            获取本地只读区版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.IResourceManager.ReadWriteVersionListSerializer">
+            <summary>
+            获取本地读写区版本资源列表序列化器。
+            </summary>
+        </member>
         <member name="P:GameFramework.Resource.IResourceManager.ApplicableGameVersion">
             <summary>
             获取当前资源适用的游戏版本号。
@@ -12555,9 +12311,9 @@
             获取或设置资源更新下载地址。
             </summary>
         </member>
-        <member name="P:GameFramework.Resource.IResourceManager.GenerateReadWriteListLength">
+        <member name="P:GameFramework.Resource.IResourceManager.GenerateReadWriteVersionListLength">
             <summary>
-            获取或设置每下载多少字节的资源，刷新一次资源列表。
+            获取或设置每下载多少字节的资源，重新生成一次版本资源列表。
             </summary>
         </member>
         <member name="P:GameFramework.Resource.IResourceManager.UpdateRetryCount">
@@ -12767,7 +12523,7 @@
             检查资源是否存在。
             </summary>
             <param name="assetName">要检查资源的名称。</param>
-            <returns>资源是否存在。</returns>
+            <returns>检查资源是否存在的结果。</returns>
         </member>
         <member name="M:GameFramework.Resource.IResourceManager.LoadAsset(System.String,GameFramework.Resource.LoadAssetCallbacks)">
             <summary>
@@ -12888,6 +12644,37 @@
             </summary>
             <param name="sceneAssetName">要卸载场景资源的名称。</param>
             <param name="unloadSceneCallbacks">卸载场景回调函数集。</param>
+            <param name="userData">用户自定义数据。</param>
+        </member>
+        <member name="M:GameFramework.Resource.IResourceManager.GetBinaryPath(System.String)">
+            <summary>
+            获取二进制资源的实际路径。
+            </summary>
+            <param name="binaryAssetName">要获取实际路径的二进制资源的名称。</param>
+            <returns>二进制资源的实际路径。</returns>
+        </member>
+        <member name="M:GameFramework.Resource.IResourceManager.GetBinaryPath(System.String,System.Boolean@,System.String@)">
+            <summary>
+            获取二进制资源的实际路径。
+            </summary>
+            <param name="binaryAssetName">要获取实际路径的二进制资源的名称。</param>
+            <param name="storageInReadOnly">资源是否在只读区。</param>
+            <param name="relativePath">二进制资源相对于只读区或者读写区的相对路径。</param>
+            <returns>获取二进制资源的实际路径是否成功。</returns>
+        </member>
+        <member name="M:GameFramework.Resource.IResourceManager.LoadBinary(System.String,GameFramework.Resource.LoadBinaryCallbacks)">
+            <summary>
+            异步加载二进制资源。
+            </summary>
+            <param name="binaryAssetName">要加载二进制资源的名称。</param>
+            <param name="loadBinaryCallbacks">加载二进制资源回调函数集。</param>
+        </member>
+        <member name="M:GameFramework.Resource.IResourceManager.LoadBinary(System.String,GameFramework.Resource.LoadBinaryCallbacks,System.Object)">
+            <summary>
+            异步加载二进制资源。
+            </summary>
+            <param name="binaryAssetName">要加载二进制资源的名称。</param>
+            <param name="loadBinaryCallbacks">加载二进制资源回调函数集。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
         <member name="M:GameFramework.Resource.IResourceManager.HasResourceGroup(System.String)">
@@ -13029,13 +12816,96 @@
             <param name="progress">加载资源进度。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
-        <member name="T:GameFramework.Resource.LoadBytesCallback">
+        <member name="T:GameFramework.Resource.LoadBinaryCallbacks">
             <summary>
-            读取数据流回调函数。
+            加载二进制资源回调函数集。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.LoadBinaryCallbacks.#ctor(GameFramework.Resource.LoadBinarySuccessCallback)">
+            <summary>
+            初始化加载二进制资源回调函数集的新实例。
+            </summary>
+            <param name="loadBinarySuccessCallback">加载二进制资源成功回调函数。</param>
+        </member>
+        <member name="M:GameFramework.Resource.LoadBinaryCallbacks.#ctor(GameFramework.Resource.LoadBinarySuccessCallback,GameFramework.Resource.LoadBinaryFailureCallback)">
+            <summary>
+            初始化加载二进制资源回调函数集的新实例。
+            </summary>
+            <param name="loadBinarySuccessCallback">加载二进制资源成功回调函数。</param>
+            <param name="loadBinaryFailureCallback">加载二进制资源失败回调函数。</param>
+        </member>
+        <member name="P:GameFramework.Resource.LoadBinaryCallbacks.LoadBinarySuccessCallback">
+            <summary>
+            获取加载二进制资源成功回调函数。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.LoadBinaryCallbacks.LoadBinaryFailureCallback">
+            <summary>
+            获取加载二进制资源失败回调函数。
+            </summary>
+        </member>
+        <member name="T:GameFramework.Resource.LoadBinaryFailureCallback">
+            <summary>
+            加载二进制资源失败回调函数。
+            </summary>
+            <param name="binaryAssetName">要加载的二进制资源名称。</param>
+            <param name="status">加载二进制资源状态。</param>
+            <param name="errorMessage">错误信息。</param>
+            <param name="userData">用户自定义数据。</param>
+        </member>
+        <member name="T:GameFramework.Resource.LoadBinarySuccessCallback">
+            <summary>
+            加载二进制资源成功回调函数。
+            </summary>
+            <param name="binaryAssetName">要加载的二进制资源名称。</param>
+            <param name="binaryBytes">已加载的二进制资源。</param>
+            <param name="duration">加载持续时间。</param>
+            <param name="userData">用户自定义数据。</param>
+        </member>
+        <member name="T:GameFramework.Resource.LoadBytesCallbacks">
+            <summary>
+            加载数据流回调函数集。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.LoadBytesCallbacks.#ctor(GameFramework.Resource.LoadBytesSuccessCallback)">
+            <summary>
+            初始化加载数据流回调函数集的新实例。
+            </summary>
+            <param name="loadBinarySuccessCallback">加载数据流成功回调函数。</param>
+        </member>
+        <member name="M:GameFramework.Resource.LoadBytesCallbacks.#ctor(GameFramework.Resource.LoadBytesSuccessCallback,GameFramework.Resource.LoadBytesFailureCallback)">
+            <summary>
+            初始化加载数据流回调函数集的新实例。
+            </summary>
+            <param name="loadBytesSuccessCallback">加载数据流成功回调函数。</param>
+            <param name="loadBytesFailureCallback">加载数据流失败回调函数。</param>
+        </member>
+        <member name="P:GameFramework.Resource.LoadBytesCallbacks.LoadBytesSuccessCallback">
+            <summary>
+            获取加载数据流成功回调函数。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.LoadBytesCallbacks.LoadBytesFailureCallback">
+            <summary>
+            获取加载数据流失败回调函数。
+            </summary>
+        </member>
+        <member name="T:GameFramework.Resource.LoadBytesFailureCallback">
+            <summary>
+            加载数据流失败回调函数。
+            </summary>
+            <param name="fileUri">文件路径。</param>
+            <param name="errorMessage">错误信息。</param>
+            <param name="userData">用户自定义数据。</param>
+        </member>
+        <member name="T:GameFramework.Resource.LoadBytesSuccessCallback">
+            <summary>
+            加载数据流成功回调函数。
             </summary>
             <param name="fileUri">文件路径。</param>
             <param name="bytes">数据流。</param>
-            <param name="errorMessage">错误信息。</param>
+            <param name="duration">加载持续时间。</param>
+            <param name="userData">用户自定义数据。</param>
         </member>
         <member name="T:GameFramework.Resource.LoadResourceAgentHelperErrorEventArgs">
             <summary>
@@ -13134,17 +13004,11 @@
             初始化加载资源代理辅助器异步读取资源二进制流完成事件的新实例。
             </summary>
         </member>
-        <member name="P:GameFramework.Resource.LoadResourceAgentHelperReadBytesCompleteEventArgs.LoadType">
-            <summary>
-            获取资源加载方式。
-            </summary>
-        </member>
-        <member name="M:GameFramework.Resource.LoadResourceAgentHelperReadBytesCompleteEventArgs.Create(System.Byte[],System.Int32)">
+        <member name="M:GameFramework.Resource.LoadResourceAgentHelperReadBytesCompleteEventArgs.Create(System.Byte[])">
             <summary>
             创建加载资源代理辅助器异步读取资源二进制流完成事件。
             </summary>
             <param name="bytes">资源的二进制流。</param>
-            <param name="loadType">资源加载方式。</param>
             <returns>创建的加载资源代理辅助器异步读取资源二进制流完成事件。</returns>
         </member>
         <member name="M:GameFramework.Resource.LoadResourceAgentHelperReadBytesCompleteEventArgs.Clear">
@@ -13395,6 +13259,269 @@
             <param name="progress">加载场景进度。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
+        <member name="T:GameFramework.Resource.LocalVersionList">
+            <summary>
+            本地版本资源列表。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.LocalVersionList.#ctor(GameFramework.Resource.LocalVersionList.Resource[])">
+            <summary>
+            初始化本地版本资源列表的新实例。
+            </summary>
+            <param name="resources">包含的资源集合。</param>
+        </member>
+        <member name="P:GameFramework.Resource.LocalVersionList.IsValid">
+            <summary>
+            获取本地版本资源列表是否有效。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.LocalVersionList.GetResources">
+            <summary>
+            获取资源集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GameFramework.Resource.LocalVersionList.Resource">
+            <summary>
+            资源。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.LocalVersionList.Resource.#ctor(System.String,System.String,System.String,System.Byte,System.Int32,System.Int32)">
+            <summary>
+            初始化资源的新实例。
+            </summary>
+            <param name="name">资源名称。</param>
+            <param name="variant">资源变体名称。</param>
+            <param name="extension">资源扩展名称。</param>
+            <param name="loadType">资源加载方式。</param>
+            <param name="length">资源长度。</param>
+            <param name="hashCode">资源哈希值。</param>
+        </member>
+        <member name="P:GameFramework.Resource.LocalVersionList.Resource.Name">
+            <summary>
+            获取资源名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.LocalVersionList.Resource.Variant">
+            <summary>
+            获取资源变体名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.LocalVersionList.Resource.Extension">
+            <summary>
+            获取资源扩展名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.LocalVersionList.Resource.LoadType">
+            <summary>
+            获取资源加载方式。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.LocalVersionList.Resource.Length">
+            <summary>
+            获取资源长度。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.LocalVersionList.Resource.HashCode">
+            <summary>
+            获取资源哈希值。
+            </summary>
+        </member>
+        <member name="T:GameFramework.Resource.PackageVersionList">
+            <summary>
+            单机模式版本资源列表。
+            </summary>
+        </member>
+        <member name="T:GameFramework.Resource.PackageVersionList.Asset">
+            <summary>
+            资源。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.Asset.#ctor(System.String,System.Int32[])">
+            <summary>
+            初始化资源的新实例。
+            </summary>
+            <param name="name">资源名称。</param>
+            <param name="dependencyAssetIndexes">资源包含的依赖资源索引集合。</param>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.Asset.Name">
+            <summary>
+            获取资源名称。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.Asset.GetDependencyAssetIndexes">
+            <summary>
+            获取资源包含的依赖资源索引集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.#ctor(System.String,System.Int32,GameFramework.Resource.PackageVersionList.Asset[],GameFramework.Resource.PackageVersionList.Resource[],GameFramework.Resource.PackageVersionList.ResourceGroup[])">
+            <summary>
+            初始化单机模式版本资源列表的新实例。
+            </summary>
+            <param name="applicableGameVersion">适配的游戏版本号。</param>
+            <param name="internalResourceVersion">内部资源版本号。</param>
+            <param name="assets">包含的资源集合。</param>
+            <param name="resources">包含的资源集合。</param>
+            <param name="resourceGroups">包含的资源组集合。</param>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.IsValid">
+            <summary>
+            获取单机模式版本资源列表是否有效。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.ApplicableGameVersion">
+            <summary>
+            获取适配的游戏版本号。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.InternalResourceVersion">
+            <summary>
+            获取内部资源版本号。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.GetAssets">
+            <summary>
+            获取包含的资源集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.GetResources">
+            <summary>
+            获取包含的资源集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.GetResourceGroups">
+            <summary>
+            获取包含的资源组集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GameFramework.Resource.PackageVersionList.Resource">
+            <summary>
+            资源。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.Resource.#ctor(System.String,System.String,System.String,System.Byte,System.Int32,System.Int32,System.Int32[])">
+            <summary>
+            初始化资源的新实例。
+            </summary>
+            <param name="name">资源名称。</param>
+            <param name="variant">资源变体名称。</param>
+            <param name="extension">资源扩展名称。</param>
+            <param name="loadType">资源加载方式。</param>
+            <param name="length">资源长度。</param>
+            <param name="hashCode">资源哈希值。</param>
+            <param name="assetIndexes">资源包含的资源索引集合。</param>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.Resource.Name">
+            <summary>
+            获取资源名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.Resource.Variant">
+            <summary>
+            获取资源变体名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.Resource.Extension">
+            <summary>
+            获取资源扩展名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.Resource.LoadType">
+            <summary>
+            获取资源加载方式。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.Resource.Length">
+            <summary>
+            获取资源长度。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.Resource.HashCode">
+            <summary>
+            获取资源哈希值。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.Resource.GetAssetIndexes">
+            <summary>
+            获取资源包含的资源索引集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GameFramework.Resource.PackageVersionList.ResourceGroup">
+            <summary>
+            资源组。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.ResourceGroup.#ctor(System.String,System.Int32[])">
+            <summary>
+            初始化资源组的新实例。
+            </summary>
+            <param name="name">资源组名称。</param>
+            <param name="resourceIndexes">资源组包含的资源索引集合。</param>
+        </member>
+        <member name="P:GameFramework.Resource.PackageVersionList.ResourceGroup.Name">
+            <summary>
+            获取资源组名称。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionList.ResourceGroup.GetResourceIndexes">
+            <summary>
+            获取资源组包含的资源索引集合。
+            </summary>
+            <returns>资源组包含的资源索引集合。</returns>
+        </member>
+        <member name="T:GameFramework.Resource.PackageVersionListSerializer">
+            <summary>
+            单机模式版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionListSerializer.#ctor">
+            <summary>
+            初始化单机模式版本资源列表序列化器的新实例。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.PackageVersionListSerializer.GetHeader">
+            <summary>
+            获取单机模式版本资源列表头标识。
+            </summary>
+            <returns>单机模式版本资源列表头标识。</returns>
+        </member>
+        <member name="T:GameFramework.Resource.ReadOnlyVersionListSerializer">
+            <summary>
+            本地只读区版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.ReadOnlyVersionListSerializer.#ctor">
+            <summary>
+            初始化本地只读区版本资源列表序列化器的新实例。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.ReadOnlyVersionListSerializer.GetHeader">
+            <summary>
+            获取本地只读区版本资源列表头标识。
+            </summary>
+            <returns>本地只读区版本资源列表头标识。</returns>
+        </member>
+        <member name="T:GameFramework.Resource.ReadWriteVersionListSerializer">
+            <summary>
+            本地读写区版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.ReadWriteVersionListSerializer.#ctor">
+            <summary>
+            初始化本地读写区版本资源列表序列化器的新实例。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.ReadWriteVersionListSerializer.GetHeader">
+            <summary>
+            获取本地读写区版本资源列表头标识。
+            </summary>
+            <returns>本地读写区版本资源列表头标识。</returns>
+        </member>
         <member name="T:GameFramework.Resource.ResourceManager">
             <summary>
             资源管理器。
@@ -13460,6 +13587,26 @@
             获取当前变体。
             </summary>
         </member>
+        <member name="P:GameFramework.Resource.ResourceManager.PackageVersionListSerializer">
+            <summary>
+            获取单机模式版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.ResourceManager.UpdatableVersionListSerializer">
+            <summary>
+            获取可更新模式版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.ResourceManager.ReadOnlyVersionListSerializer">
+            <summary>
+            获取本地只读区版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.ResourceManager.ReadWriteVersionListSerializer">
+            <summary>
+            获取本地读写区版本资源列表序列化器。
+            </summary>
+        </member>
         <member name="P:GameFramework.Resource.ResourceManager.ApplicableGameVersion">
             <summary>
             获取当前资源适用的游戏版本号。
@@ -13490,9 +13637,9 @@
             获取或设置资源更新下载地址前缀。
             </summary>
         </member>
-        <member name="P:GameFramework.Resource.ResourceManager.GenerateReadWriteListLength">
+        <member name="P:GameFramework.Resource.ResourceManager.GenerateReadWriteVersionListLength">
             <summary>
-            获取或设置每下载多少字节的资源，刷新一次资源列表。
+            获取或设置每下载多少字节的资源，重新生成一次版本资源列表。
             </summary>
         </member>
         <member name="P:GameFramework.Resource.ResourceManager.UpdateRetryCount">
@@ -13714,7 +13861,7 @@
             检查资源是否存在。
             </summary>
             <param name="assetName">要检查资源的名称。</param>
-            <returns>资源是否存在。</returns>
+            <returns>检查资源是否存在的结果。</returns>
         </member>
         <member name="M:GameFramework.Resource.ResourceManager.LoadAsset(System.String,GameFramework.Resource.LoadAssetCallbacks)">
             <summary>
@@ -13837,6 +13984,37 @@
             <param name="unloadSceneCallbacks">卸载场景回调函数集。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
+        <member name="M:GameFramework.Resource.ResourceManager.GetBinaryPath(System.String)">
+            <summary>
+            获取二进制资源的实际路径。
+            </summary>
+            <param name="binaryAssetName">要获取实际路径的二进制资源的名称。</param>
+            <returns>二进制资源的实际路径。</returns>
+        </member>
+        <member name="M:GameFramework.Resource.ResourceManager.GetBinaryPath(System.String,System.Boolean@,System.String@)">
+            <summary>
+            获取二进制资源的实际路径。
+            </summary>
+            <param name="binaryAssetName">要获取实际路径的二进制资源的名称。</param>
+            <param name="storageInReadOnly">资源是否在只读区。</param>
+            <param name="relativePath">二进制资源相对于只读区或者读写区的相对路径。</param>
+            <returns>获取二进制资源的实际路径是否成功。</returns>
+        </member>
+        <member name="M:GameFramework.Resource.ResourceManager.LoadBinary(System.String,GameFramework.Resource.LoadBinaryCallbacks)">
+            <summary>
+            异步加载二进制资源。
+            </summary>
+            <param name="binaryAssetName">要加载二进制资源的名称。</param>
+            <param name="loadBinaryCallbacks">加载二进制资源回调函数集。</param>
+        </member>
+        <member name="M:GameFramework.Resource.ResourceManager.LoadBinary(System.String,GameFramework.Resource.LoadBinaryCallbacks,System.Object)">
+            <summary>
+            异步加载二进制资源。
+            </summary>
+            <param name="binaryAssetName">要加载二进制资源的名称。</param>
+            <param name="loadBinaryCallbacks">加载二进制资源回调函数集。</param>
+            <param name="userData">用户自定义数据。</param>
+        </member>
         <member name="M:GameFramework.Resource.ResourceManager.HasResourceGroup(System.String)">
             <summary>
             检查资源组是否存在。
@@ -13870,22 +14048,37 @@
         </member>
         <member name="F:GameFramework.Resource.ResourceManager.LoadType.LoadFromFile">
             <summary>
-            从文件加载。
+            使用文件方式加载。
             </summary>
         </member>
         <member name="F:GameFramework.Resource.ResourceManager.LoadType.LoadFromMemory">
             <summary>
-            从内存加载。
+            使用内存方式加载。
             </summary>
         </member>
         <member name="F:GameFramework.Resource.ResourceManager.LoadType.LoadFromMemoryAndQuickDecrypt">
             <summary>
-            从内存快速解密加载。
+            使用内存快速解密方式加载。
             </summary>
         </member>
         <member name="F:GameFramework.Resource.ResourceManager.LoadType.LoadFromMemoryAndDecrypt">
             <summary>
-            从内存解密加载。
+            使用内存解密方式加载。
+            </summary>
+        </member>
+        <member name="F:GameFramework.Resource.ResourceManager.LoadType.LoadFromBinary">
+            <summary>
+            使用二进制方式加载。
+            </summary>
+        </member>
+        <member name="F:GameFramework.Resource.ResourceManager.LoadType.LoadFromBinaryAndQuickDecrypt">
+            <summary>
+            使用二进制快速解密方式加载。
+            </summary>
+        </member>
+        <member name="F:GameFramework.Resource.ResourceManager.LoadType.LoadFromBinaryAndDecrypt">
+            <summary>
+            使用二进制解密方式加载。
             </summary>
         </member>
         <member name="T:GameFramework.Resource.ResourceManager.ResourceChecker">
@@ -14032,35 +14225,11 @@
             关闭并清理资源检查器。
             </summary>
         </member>
-        <member name="M:GameFramework.Resource.ResourceManager.ResourceChecker.TryRecoverReadWriteList">
+        <member name="M:GameFramework.Resource.ResourceManager.ResourceChecker.TryRecoverReadWriteVersionList">
             <summary>
-            尝试恢复读写区资源列表。
+            尝试恢复读写区版本资源列表。
             </summary>
             <returns>是否恢复成功。</returns>
-        </member>
-        <member name="M:GameFramework.Resource.ResourceManager.ResourceChecker.ParseVersionList(System.String,System.Byte[],System.String)">
-            <summary>
-            解析版本资源列表。
-            </summary>
-            <param name="fileUri">版本资源列表文件路径。</param>
-            <param name="bytes">要解析的数据。</param>
-            <param name="errorMessage">错误信息。</param>
-        </member>
-        <member name="M:GameFramework.Resource.ResourceManager.ResourceChecker.ParseReadOnlyList(System.String,System.Byte[],System.String)">
-            <summary>
-            解析只读区资源列表。
-            </summary>
-            <param name="fileUri">只读区资源列表文件路径。</param>
-            <param name="bytes">要解析的数据。</param>
-            <param name="errorMessage">错误信息。</param>
-        </member>
-        <member name="M:GameFramework.Resource.ResourceManager.ResourceChecker.ParseReadWriteList(System.String,System.Byte[],System.String)">
-            <summary>
-            解析读写区资源列表。
-            </summary>
-            <param name="fileUri">读写区资源列表文件路径。</param>
-            <param name="bytes">要解析的数据。</param>
-            <param name="errorMessage">错误信息。</param>
         </member>
         <member name="T:GameFramework.Resource.ResourceManager.ResourceGroup">
             <summary>
@@ -14202,42 +14371,6 @@
             初始化资源。
             </summary>
         </member>
-        <member name="M:GameFramework.Resource.ResourceManager.ResourceIniter.ParsePackageList(System.String,System.Byte[],System.String)">
-            <summary>
-            解析资源包资源列表。
-            </summary>
-            <param name="fileUri">版本资源列表文件路径。</param>
-            <param name="bytes">要解析的数据。</param>
-            <param name="errorMessage">错误信息。</param>
-        </member>
-        <member name="T:GameFramework.Resource.ResourceManager.ResourceLength">
-            <summary>
-            资源大小数据。
-            </summary>
-        </member>
-        <member name="M:GameFramework.Resource.ResourceManager.ResourceLength.#ctor(GameFramework.Resource.ResourceManager.ResourceName,System.Int32,System.Int32)">
-            <summary>
-            初始化资源大小数据的新实例。
-            </summary>
-            <param name="resourceName">资源名称。</param>
-            <param name="length">资源大小。</param>
-            <param name="zipLength">资源压缩后的大小。</param>
-        </member>
-        <member name="P:GameFramework.Resource.ResourceManager.ResourceLength.ResourceName">
-            <summary>
-            获取资源名称。
-            </summary>
-        </member>
-        <member name="P:GameFramework.Resource.ResourceManager.ResourceLength.Length">
-            <summary>
-            获取资源大小。
-            </summary>
-        </member>
-        <member name="P:GameFramework.Resource.ResourceManager.ResourceLength.ZipLength">
-            <summary>
-            获取资源压缩后的大小。
-            </summary>
-        </member>
         <member name="T:GameFramework.Resource.ResourceManager.ResourceLoader">
             <summary>
             加载资源器。
@@ -14347,7 +14480,7 @@
             检查资源是否存在。
             </summary>
             <param name="assetName">要检查资源的名称。</param>
-            <returns>资源是否存在。</returns>
+            <returns>检查资源是否存在的结果。</returns>
         </member>
         <member name="M:GameFramework.Resource.ResourceManager.ResourceLoader.LoadAsset(System.String,System.Type,System.Int32,GameFramework.Resource.LoadAssetCallbacks,System.Object)">
             <summary>
@@ -14380,6 +14513,30 @@
             </summary>
             <param name="sceneAssetName">要卸载场景资源的名称。</param>
             <param name="unloadSceneCallbacks">卸载场景回调函数集。</param>
+            <param name="userData">用户自定义数据。</param>
+        </member>
+        <member name="M:GameFramework.Resource.ResourceManager.ResourceLoader.GetBinaryPath(System.String)">
+            <summary>
+            获取二进制资源的实际路径。
+            </summary>
+            <param name="binaryAssetName">要获取实际路径的二进制资源的名称。</param>
+            <returns>二进制资源的实际路径。</returns>
+        </member>
+        <member name="M:GameFramework.Resource.ResourceManager.ResourceLoader.GetBinaryPath(System.String,System.Boolean@,System.String@)">
+            <summary>
+            获取二进制资源的实际路径。
+            </summary>
+            <param name="binaryAssetName">要获取实际路径的二进制资源的名称。</param>
+            <param name="storageInReadOnly">资源是否在只读区。</param>
+            <param name="relativePath">二进制资源相对于只读区或者读写区的相对路径。</param>
+            <returns>获取二进制资源的实际路径是否成功。</returns>
+        </member>
+        <member name="M:GameFramework.Resource.ResourceManager.ResourceLoader.LoadBinary(System.String,GameFramework.Resource.LoadBinaryCallbacks,System.Object)">
+            <summary>
+            异步加载二进制资源。
+            </summary>
+            <param name="binaryAssetName">要加载二进制资源的名称。</param>
+            <param name="loadBinaryCallbacks">加载二进制资源回调函数集。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
         <member name="M:GameFramework.Resource.ResourceManager.ResourceLoader.GetAllLoadAssetInfos">
@@ -14448,12 +14605,13 @@
             资源名称。
             </summary>
         </member>
-        <member name="M:GameFramework.Resource.ResourceManager.ResourceName.#ctor(System.String,System.String)">
+        <member name="M:GameFramework.Resource.ResourceManager.ResourceName.#ctor(System.String,System.String,System.String)">
             <summary>
             初始化资源名称的新实例。
             </summary>
             <param name="name">资源名称。</param>
             <param name="variant">变体名称。</param>
+            <param name="extension">扩展名称。</param>
         </member>
         <member name="P:GameFramework.Resource.ResourceManager.ResourceName.Name">
             <summary>
@@ -14465,9 +14623,9 @@
             获取变体名称。
             </summary>
         </member>
-        <member name="P:GameFramework.Resource.ResourceManager.ResourceName.IsVariant">
+        <member name="P:GameFramework.Resource.ResourceManager.ResourceName.Extension">
             <summary>
-            获取是否变体。
+            获取扩展名称。
             </summary>
         </member>
         <member name="T:GameFramework.Resource.ResourceManager.ResourceNameComparer">
@@ -14486,9 +14644,9 @@
             </summary>
             <param name="resourceManager">资源管理器。</param>
         </member>
-        <member name="P:GameFramework.Resource.ResourceManager.ResourceUpdater.GenerateReadWriteListLength">
+        <member name="P:GameFramework.Resource.ResourceManager.ResourceUpdater.GenerateReadWriteVersionListLength">
             <summary>
-            获取或设置每下载多少字节的资源，刷新一次资源列表。
+            获取或设置每下载多少字节的资源，重新生成一次版本资源列表。
             </summary>
         </member>
         <member name="P:GameFramework.Resource.ResourceManager.ResourceUpdater.UpdateRetryCount">
@@ -14550,7 +14708,7 @@
             <summary>
             检查资源完成。
             </summary>
-            <param name="needGenerateReadWriteList">是否需要生成读写区资源列表。</param>
+            <param name="needGenerateReadWriteVersionList">是否需要生成读写区版本资源列表。</param>
         </member>
         <member name="M:GameFramework.Resource.ResourceManager.ResourceUpdater.UpdateResources(GameFramework.Resource.ResourceManager.ResourceGroup)">
             <summary>
@@ -14926,6 +15084,181 @@
             <param name="sceneAssetName">要卸载的场景资源名称。</param>
             <param name="userData">用户自定义数据。</param>
         </member>
+        <member name="T:GameFramework.Resource.UpdatableVersionList">
+            <summary>
+            可更新模式版本资源列表。
+            </summary>
+        </member>
+        <member name="T:GameFramework.Resource.UpdatableVersionList.Asset">
+            <summary>
+            资源。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.Asset.#ctor(System.String,System.Int32[])">
+            <summary>
+            初始化资源的新实例。
+            </summary>
+            <param name="name">资源名称。</param>
+            <param name="dependencyAssetIndexes">资源包含的依赖资源索引集合。</param>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.Asset.Name">
+            <summary>
+            获取资源名称。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.Asset.GetDependencyAssetIndexes">
+            <summary>
+            获取资源包含的依赖资源索引集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.#ctor(System.String,System.Int32,GameFramework.Resource.UpdatableVersionList.Asset[],GameFramework.Resource.UpdatableVersionList.Resource[],GameFramework.Resource.UpdatableVersionList.ResourceGroup[])">
+            <summary>
+            初始化可更新模式版本资源列表的新实例。
+            </summary>
+            <param name="applicableGameVersion">适配的游戏版本号。</param>
+            <param name="internalResourceVersion">内部资源版本号。</param>
+            <param name="assets">包含的资源集合。</param>
+            <param name="resources">包含的资源集合。</param>
+            <param name="resourceGroups">包含的资源组集合。</param>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.IsValid">
+            <summary>
+            获取可更新模式版本资源列表是否有效。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.ApplicableGameVersion">
+            <summary>
+            获取适配的游戏版本号。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.InternalResourceVersion">
+            <summary>
+            获取内部资源版本号。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.GetAssets">
+            <summary>
+            获取包含的资源集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.GetResources">
+            <summary>
+            获取包含的资源集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.GetResourceGroups">
+            <summary>
+            获取包含的资源组集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GameFramework.Resource.UpdatableVersionList.Resource">
+            <summary>
+            资源。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.Resource.#ctor(System.String,System.String,System.String,System.Byte,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32[])">
+            <summary>
+            初始化资源的新实例。
+            </summary>
+            <param name="name">资源名称。</param>
+            <param name="variant">资源变体名称。</param>
+            <param name="extension">资源扩展名称。</param>
+            <param name="loadType">资源加载方式。</param>
+            <param name="length">资源长度。</param>
+            <param name="hashCode">资源哈希值。</param>
+            <param name="zipLength">资源压缩后长度。</param>
+            <param name="zipHashCode">资源压缩后哈希值。</param>
+            <param name="assetIndexes">资源包含的资源索引集合。</param>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.Resource.Name">
+            <summary>
+            获取资源名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.Resource.Variant">
+            <summary>
+            获取资源变体名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.Resource.Extension">
+            <summary>
+            获取资源扩展名称。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.Resource.LoadType">
+            <summary>
+            获取资源加载方式。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.Resource.Length">
+            <summary>
+            获取资源长度。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.Resource.HashCode">
+            <summary>
+            获取资源哈希值。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.Resource.ZipLength">
+            <summary>
+            获取资源压缩后长度。
+            </summary>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.Resource.ZipHashCode">
+            <summary>
+            获取资源压缩后哈希值。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.Resource.GetAssetIndexes">
+            <summary>
+            获取资源包含的资源索引集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GameFramework.Resource.UpdatableVersionList.ResourceGroup">
+            <summary>
+            资源组。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.ResourceGroup.#ctor(System.String,System.Int32[])">
+            <summary>
+            初始化资源组的新实例。
+            </summary>
+            <param name="name">资源组名称。</param>
+            <param name="resourceIndexes">资源组包含的资源索引集合。</param>
+        </member>
+        <member name="P:GameFramework.Resource.UpdatableVersionList.ResourceGroup.Name">
+            <summary>
+            获取资源组名称。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionList.ResourceGroup.GetResourceIndexes">
+            <summary>
+            获取资源组包含的资源索引集合。
+            </summary>
+            <returns>资源组包含的资源索引集合。</returns>
+        </member>
+        <member name="T:GameFramework.Resource.UpdatableVersionListSerializer">
+            <summary>
+            可更新模式版本资源列表序列化器。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionListSerializer.#ctor">
+            <summary>
+            初始化可更新模式版本资源列表序列化器的新实例。
+            </summary>
+        </member>
+        <member name="M:GameFramework.Resource.UpdatableVersionListSerializer.GetHeader">
+            <summary>
+            获取可更新模式版本资源列表头标识。
+            </summary>
+            <returns>可更新模式版本资源列表头标识。</returns>
+        </member>
         <member name="T:GameFramework.Resource.UpdateResourcesCompleteCallback">
             <summary>
             使用可更新模式并更新指定资源组完成时的回调函数。
@@ -15072,6 +15405,13 @@
             获取正在卸载场景的资源名称。
             </summary>
             <param name="results">正在卸载场景的资源名称。</param>
+        </member>
+        <member name="M:GameFramework.Scene.ISceneManager.HasScene(System.String)">
+            <summary>
+            检查场景资源是否存在。
+            </summary>
+            <param name="sceneAssetName">要检查场景资源的名称。</param>
+            <returns>场景资源是否存在。</returns>
         </member>
         <member name="M:GameFramework.Scene.ISceneManager.LoadScene(System.String)">
             <summary>
@@ -15403,6 +15743,13 @@
             </summary>
             <param name="results">正在卸载场景的资源名称。</param>
         </member>
+        <member name="M:GameFramework.Scene.SceneManager.HasScene(System.String)">
+            <summary>
+            检查场景资源是否存在。
+            </summary>
+            <param name="sceneAssetName">要检查场景资源的名称。</param>
+            <returns>场景资源是否存在。</returns>
+        </member>
         <member name="M:GameFramework.Scene.SceneManager.LoadScene(System.String)">
             <summary>
             加载场景。
@@ -15515,6 +15862,11 @@
             游戏配置辅助器接口。
             </summary>
         </member>
+        <member name="P:GameFramework.Setting.ISettingHelper.Count">
+            <summary>
+            获取游戏配置项数量。
+            </summary>
+        </member>
         <member name="M:GameFramework.Setting.ISettingHelper.Load">
             <summary>
             加载游戏配置。
@@ -15526,6 +15878,18 @@
             保存游戏配置。
             </summary>
             <returns>是否保存游戏配置成功。</returns>
+        </member>
+        <member name="M:GameFramework.Setting.ISettingHelper.GetAllSettingNames">
+            <summary>
+            获取所有游戏配置项的名称。
+            </summary>
+            <returns>所有游戏配置项的名称。</returns>
+        </member>
+        <member name="M:GameFramework.Setting.ISettingHelper.GetAllSettingNames(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取所有游戏配置项的名称。
+            </summary>
+            <param name="results">所有游戏配置项的名称。</param>
         </member>
         <member name="M:GameFramework.Setting.ISettingHelper.HasSetting(System.String)">
             <summary>
@@ -15539,6 +15903,7 @@
             移除指定游戏配置项。
             </summary>
             <param name="settingName">要移除游戏配置项的名称。</param>
+            <returns>是否移除指定游戏配置项成功。</returns>
         </member>
         <member name="M:GameFramework.Setting.ISettingHelper.RemoveAllSettings">
             <summary>
@@ -15687,6 +16052,11 @@
             游戏配置管理器接口。
             </summary>
         </member>
+        <member name="P:GameFramework.Setting.ISettingManager.Count">
+            <summary>
+            获取游戏配置项数量。
+            </summary>
+        </member>
         <member name="M:GameFramework.Setting.ISettingManager.SetSettingHelper(GameFramework.Setting.ISettingHelper)">
             <summary>
             设置游戏配置辅助器。
@@ -15705,6 +16075,18 @@
             </summary>
             <returns>是否保存游戏配置成功。</returns>
         </member>
+        <member name="M:GameFramework.Setting.ISettingManager.GetAllSettingNames">
+            <summary>
+            获取所有游戏配置项的名称。
+            </summary>
+            <returns>所有游戏配置项的名称。</returns>
+        </member>
+        <member name="M:GameFramework.Setting.ISettingManager.GetAllSettingNames(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取所有游戏配置项的名称。
+            </summary>
+            <param name="results">所有游戏配置项的名称。</param>
+        </member>
         <member name="M:GameFramework.Setting.ISettingManager.HasSetting(System.String)">
             <summary>
             检查是否存在指定游戏配置项。
@@ -15717,6 +16099,7 @@
             移除指定游戏配置项。
             </summary>
             <param name="settingName">要移除游戏配置项的名称。</param>
+            <returns>是否移除指定游戏配置项成功。</returns>
         </member>
         <member name="M:GameFramework.Setting.ISettingManager.RemoveAllSettings">
             <summary>
@@ -15870,6 +16253,11 @@
             初始化游戏配置管理器的新实例。
             </summary>
         </member>
+        <member name="P:GameFramework.Setting.SettingManager.Count">
+            <summary>
+            获取游戏配置项数量。
+            </summary>
+        </member>
         <member name="M:GameFramework.Setting.SettingManager.Update(System.Single,System.Single)">
             <summary>
             游戏配置管理器轮询。
@@ -15900,6 +16288,18 @@
             </summary>
             <returns>是否保存游戏配置成功。</returns>
         </member>
+        <member name="M:GameFramework.Setting.SettingManager.GetAllSettingNames">
+            <summary>
+            获取所有游戏配置项的名称。
+            </summary>
+            <returns>所有游戏配置项的名称。</returns>
+        </member>
+        <member name="M:GameFramework.Setting.SettingManager.GetAllSettingNames(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取所有游戏配置项的名称。
+            </summary>
+            <param name="results">所有游戏配置项的名称。</param>
+        </member>
         <member name="M:GameFramework.Setting.SettingManager.HasSetting(System.String)">
             <summary>
             检查是否存在指定游戏配置项。
@@ -15912,6 +16312,7 @@
             移除指定游戏配置项。
             </summary>
             <param name="settingName">要移除游戏配置项的名称。</param>
+            <returns>是否移除指定游戏配置项成功。</returns>
         </member>
         <member name="M:GameFramework.Setting.SettingManager.RemoveAllSettings">
             <summary>
@@ -19811,21 +20212,6 @@
             </summary>
             <param name="path">原始路径。</param>
             <returns>远程格式路径。</returns>
-        </member>
-        <member name="M:GameFramework.Utility.Path.GetResourceNameWithSuffix(System.String)">
-            <summary>
-            获取带有后缀的资源名。
-            </summary>
-            <param name="resourceName">原始资源名。</param>
-            <returns>带有后缀的资源名。</returns>
-        </member>
-        <member name="M:GameFramework.Utility.Path.GetResourceNameWithCrc32AndSuffix(System.String,System.Int32)">
-            <summary>
-            获取带有 CRC32 和后缀的资源名。
-            </summary>
-            <param name="resourceName">原始资源名。</param>
-            <param name="hashCode">CRC32 哈希值。</param>
-            <returns>带有 CRC32 和后缀的资源名。</returns>
         </member>
         <member name="M:GameFramework.Utility.Path.RemoveEmptyDirectory(System.String)">
             <summary>
